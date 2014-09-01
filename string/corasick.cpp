@@ -8,7 +8,7 @@ using namespace std;
 
 struct trie{
 	map<char, trie> next;
-	trie* tran[256];
+	trie* tran[256];//transiciones del automata
 	int idhoja, szhoja;//id de la hoja o 0 si no lo es
 	//link lleva al sufijo mas largo, nxthoja lleva al mas largo pero que es hoja
 	trie *padre, *link, *nxthoja;

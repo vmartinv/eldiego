@@ -1,4 +1,9 @@
-eldiego
+El Diego
 =======
 
-Notebok
+Notebok del equipo caloventorEnDos
+
+Estado
+------------
+
+Muy incompleto
