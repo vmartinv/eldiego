@@ -19,3 +19,6 @@
 *.exe
 *.out
 *.app
+
+# Mierda del latex
+*.tex.swp
