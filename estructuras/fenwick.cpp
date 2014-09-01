@@ -1,3 +1,4 @@
+//For 2D threat each column as a Fenwick tree, by adding a nested for in each operation
 struct Fenwick{
 	static const int sz=1000001;
 	tipo t[sz];

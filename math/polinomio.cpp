@@ -1,6 +1,6 @@
 #define MAX_GR  20
 struct poly {
-	int p[MAX_GR];//guarda los coeficientes del polinomio
+	tipo p[MAX_GR];//guarda los coeficientes del polinomio
 	poly(){zero(p);}
 	int gr(){//calculates grade of the polynomial
 		dforn(i,MAX_GR) if(p[i]) return i;
@@ -16,22 +16,22 @@ struct poly {
 		forn(i,MAX_GR) forn(k,i+1) c.p[i]+=p[k]*b.p[i-k];
 		return c;
 	}
-	int eval(int v) {
-		int sum = 0;
-		forn(i,MAX_GR) sum+=p[i]*pow(v,i);
+	tipo eval(tipo v) {
+		tipo sum = 0;
+		dforsn(i, 0, MAX_GR) sum=sum*v + p[i];
 		return sum;
 	}
 	//the following function generates the roots of the polynomial
 //it can be easily modified to return float roots
-	set<int> roots(){
-		set<int> roots;
-		int a0 = abs(p[0]), an = abs(p[gr()]);
-		vector<int> ps,qs;
+	set<tipo> roots(){
+		set<tipo> roots;
+		tipo a0 = abs(p[0]), an = abs(p[gr()]);
+		vector<tipo> ps,qs;
 		forr(p,1,sqrt(a0)+1) if (a0%p==0) ps.pb(p),ps.pb(a0/p);
 		forr(q,1,sqrt(an)+1) if (an%q==0) qs.pb(q),qs.pb(an/q);
 		forall(pt,ps)
 			forall(qt,qs) if ( (*pt) % (*qt)==0 ) {
-				int root = abs((*pt) / (*qt));
+				tipo root = abs((*pt) / (*qt));
 				if (eval(root)==0) roots.insert(root);
 			}
 		return roots;

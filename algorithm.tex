@@ -1,0 +1,38 @@
+\textbf{\#include $<$algorithm$>$ \#include $<$numeric$>$ \\}
+\begin{tabular}{|l|l|p{5.4cm}|} \hline
+\textbf{Algo} & \textbf{Params} &  \textbf{Funcion} \\  \hline
+%swap & e1, e2 &  da vuelta e1,e2 & $1$\\\hline
+sort, stable\_sort & f, l &  ordena el intervalo \\  \hline
+%is\_sorted & f, l &  \textit{bool} si esta ordenado \\  \hline
+nth\_element & f, nth, l & \textit{void} ordena el n-esimo, y \\ && particiona el resto \\  \hline
+fill, fill\_n & f, l / n, elem & \textit{void} llena [f, l) o [f, \\ && f+n) con elem \\  \hline
+lower\_bound, upper\_bound & f, l, elem & \textit{it} al primer / ultimo donde se \\ && puede insertar elem para que\\ && quede ordenada \\  \hline
+binary\_search & f, l, elem & \textit{bool} esta elem en [f, l) \\  \hline
+copy & f, l, resul & hace resul+$i$=f+$i$ $\forall i$ \\  \hline
+find, find\_if, find\_first\_of & f, l, elem & \textit{it} encuentra i $\in$[f,l) tq. i$=$elem, \\ & / pred / f2, l2 & pred(i), i$\in$[f2,l2)\\\hline
+count, count\_if & f, l, elem/pred & cuenta elem, pred(i)\\\hline
+search & f, l, f2, l2 & busca [f2,l2) $\in$ [f,l)\\\hline
+replace, replace\_if & f, l, old & cambia old / pred(i) por new \\ & / pred, new &\\\hline
+reverse & f, l & da vuelta\\\hline
+partition, stable\_partition & f, l, pred & pred(i) ad, !pred(i) atras\\\hline
+%min, max & e1, e2 & men / may & $1$\\\hline
+min\_element, max\_element & f, l, [comp] & \textit{it} min, max de [f,l]\\\hline
+lexicographical\_compare & f1,l1,f2,l2 & \textit{bool} con [f1,l1]<[f2,l2]\\\hline
+next/prev\_permutation & f,l & deja en [f,l) la perm sig, ant\\\hline
+set\_intersection, & f1, l1, f2, l2, res & [res, $\ldots$) la op. de conj\\
+set\_difference, set\_union, & & \\
+set\_symmetric\_difference, & &\\\hline
+push\_heap, pop\_heap, & f, l, e / e / & mete/saca e en heap [f,l), \\
+make\_heap & & hace un heap de [f,l)\\\hline
+is\_heap & f,l & \textit{bool} es [f,l) un heap\\\hline
+accumulate & f,l,i,[op] & \textit{T} $=$ $\sum$/oper de [f,l)\\\hline
+inner\_product & f1, l1, f2, i & \textit{T} $=$ i $+$ [f1, l1) . [f2, $\ldots$ )\\\hline
+partial\_sum & f, l, r, [op] & r+i = $\sum$/oper de [f,f+i] $\forall i \in$[f,l)\\\hline
+%power & e, i, op & \textit{T} = $e^{n}$\\\hline
+\_\_builtin\_ffs& unsigned int & Pos. del primer 1 desde la derecha\\\hline
+\_\_builtin\_clz & unsigned int & Cant. de ceros desde la izquierda.\\\hline
+\_\_builtin\_ctz & unsigned int & Cant. de ceros desde la derecha.\\\hline
+\_\_builtin\_popcount & unsigned int & Cant. de 1’s en x.\\\hline
+\_\_builtin\_parity & unsigned int & 1 si x es par, 0 si es impar.\\\hline
+\_\_builtin\_llXXXXXX & unsigned ll & = pero para long long's.\\\hline
+\end{tabular}

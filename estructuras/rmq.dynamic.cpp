@@ -1,3 +1,4 @@
+//Dado un arreglo y una operacion asociativa con neutro, get(i, j) opera sobre el rango [i, j).
 #define MAXN 100000
 struct RMQ{
 	static const int sz=65536;//2*2^ceil(log(n))
