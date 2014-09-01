@@ -16,8 +16,7 @@ typedef long long ll;
 typedef pair<int,int> ii;
 
 
-int main()
-{
+int main() {
 #ifndef ONLINE_JUDGE
 	freopen("input.in", "r", stdin);
 #endif
