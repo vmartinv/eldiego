@@ -5,6 +5,7 @@
 using namespace std;
 #define forn(i,n) for(int i=0; i<n; i++)
 #define sz(c) ((int)c.size())
+#define zero(v) memset(v, 0, sizeof(v))
 
 struct trie{
 	map<char, trie> next;
@@ -13,6 +14,7 @@ struct trie{
 	//link lleva al sufijo mas largo, nxthoja lleva al mas largo pero que es hoja
 	trie *padre, *link, *nxthoja;
 	char pch;//caracter que conecta con padre
+	trie(){zero(tran);}
 	void insert(const string &s, int id=1, int p=0){//id>0!!!
 		if(s[p]){
 			trie &ch=next[s[p]];
