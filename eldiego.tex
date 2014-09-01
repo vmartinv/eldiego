@@ -1,15 +1,17 @@
 % LaTeXar con :
 %  pdflatex eldiego.tex
-%	"The PDF file may contain up to 25 pages of reference material, single-sided, letter or A4 size, with text and illustrations readable by a person with correctable eyesight without magnification from a distance of 1/2 meter."
-%
+%"The PDF file may contain up to 25 pages of reference material, single-sided, letter or A4 size, with text and illustrations readable by a person with correctable eyesight without magnification from a distance of 1/2 meter."
 \input{preamble.tex}
 \begin{document}
 \def\title{El Diego 2.0}
 \centering{\includegraphics[width=5cm]{fotodiego}}
 \tableofcontents\newpage
+
  
 \section{Algorithm}%%%%%%%%%%%%%%%%%%ALGORITHM%%%%%%%%%%%%%%%%%%
 \input{algorithm.tex}
+
+
 \section{Estructuras}%%%%%%%%%%%%%%%%%%ESTRUCTURAS%%%%%%%%%%%%%%%%%%
 \subsection{RMQ (static)}
 Dado un arreglo y una operación asociativa idempotente, get(i, j) opera sobre el rango [i, j). Restricción: LVL $\ge$ 2*ceil(logn); Usar [ ] para llenar arreglo y luego build().
@@ -31,6 +33,7 @@ Dado un arreglo y una operación asociativa idempotente, get(i, j) opera sobre e
 \subsection{Bittrie}
 \cppfile{estructuras/bitrie}
 
+
 \section{Strings}%%%%%%%%%%%%%%%%%%STRINGS%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Trie}
 \cppfile{string/trie}
@@ -40,6 +43,10 @@ Dado un arreglo y una operación asociativa idempotente, get(i, j) opera sobre e
 \cppfile[37-58]{string/suffix.array}
 \subsection{LCP (Longest Common Prefix)}
 \cppfile[60-75]{string/suffix.array}
+\subsection{Corasick}
+\cppfile[9-51]{string/corasick}
+
+
 \section{Geometría}%%%%%%%%%%%%%%%%%%GEOMETRIA%%%%%%%%%%%%%%%%%%%%%%
 \#define EPS 1e-9
 \subsection{Punto}
@@ -66,6 +73,8 @@ Dado un arreglo y una operación asociativa idempotente, get(i, j) opera sobre e
 \cppfile{geometria/bresenham}
 \subsection{Rotate Matrix}
 \cppfile{geometria/rotate}
+
+
 \section{Math}%%%%%%%%%%%%%%%%%%MATH%%%%%%%%%%%%%%%%%%%%%%%%%%&&&&&&
 \subsection{GCD}
 \begin{code}
@@ -81,6 +90,8 @@ tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \cppfile{math/frac}
 \subsection{Polinomio}
 \cppfile{math/polinomio}
+
+
 \section{Grafos}%%%%%%%%%%%%%%%%%%GRAFOS%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dijkstra}
 \cppfile{grafos/dijkstra}
@@ -98,6 +109,8 @@ tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \cppfile{flow/edmonds.karps}
 \subsection{Push-Relabel}
 \cppfile{flow/push.relabel}
+
+
 \section{Ayudamemoria}%%%%%%%%%%%%%%%%%%AYUDAMEMORIA%%%%%%%%%%%%%%%%
 \subsection*{Límites}
 \begin{code}
