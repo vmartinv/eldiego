@@ -14,9 +14,9 @@ struct trie{
 	//link lleva al sufijo mas largo, nxthoja lleva al mas largo pero que es hoja
 	trie *padre, *link, *nxthoja;
 	char pch;//caracter que conecta con padre
-	trie(){zero(tran);}
+	trie(): tran(),  idhoja(), padre(), link() {}
 	void insert(const string &s, int id=1, int p=0){//id>0!!!
-		if(s[p]){
+		if(p<sz(s)){
 			trie &ch=next[s[p]];
 			tran[(int)s[p]]=&ch;
 			ch.padre=this, ch.pch=s[p];
@@ -48,7 +48,7 @@ struct trie{
 	}
 	void matching(const string &s, int p=0){
 		print(p);
-		if(s[p]) get_tran(s[p])->matching(s, p+1);
+		if(p<sz(s)) get_tran(s[p])->matching(s, p+1);
 	}
 }tri;
 
