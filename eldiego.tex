@@ -75,7 +75,12 @@ Dado un arreglo y una operación asociativa idempotente, get(i, j) opera sobre e
 \cppfile{geometria/rotate}
 
 
-\section{Math}%%%%%%%%%%%%%%%%%%MATH%%%%%%%%%%%%%%%%%%%%%%%%%%&&&&&&
+\section{Math}%%%%%%%%%%%%%%%%%%MATH%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Criba}
+\cppfile[19-29]{math/criba}
+\subsection{Factorizacion}
+Sea $n=\prod{p_i^{k_i}}$, fact(n) genera un map donde a cada $p_i$ le asocia su $k_i$
+\cppfile[31-42]{math/factorizacion}
 \subsection{GCD}
 \begin{code}
 tipo gcd(tipo a, tipo b){return a?gcd(b %a, a):b;}
