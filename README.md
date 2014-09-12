@@ -1,7 +1,7 @@
 El Diego
 =======
 
-Notebok del equipo caloventorEnDos
+Notebook del equipo caloventorEnDos
 
 Estado
 ------------
