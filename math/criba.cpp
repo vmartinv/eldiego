@@ -16,7 +16,7 @@ using namespace std;
 typedef long long ll;
 typedef pair<int,int> ii;
 
-#define MAXP 130000	//no necesariamente primo
+#define MAXP 80000	//no necesariamente primo
 int criba[MAXP+1];
 vector<int> primos;
 
@@ -29,8 +29,16 @@ void buscarprimos(){
 }
 
 int main() {
+	freopen("primos", "w", stdout);
 	buscarprimos();
-	forall(it, primos) cout << *it << endl;
+	cout << '{';
+	bool first=true;
+	forall(it, primos){
+		if(first) first=false;
+		else cout << ',';
+		cout << *it;
+    }
+    cout << "};\n";
     return 0;
 }
 

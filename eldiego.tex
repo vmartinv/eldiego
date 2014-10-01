@@ -15,72 +15,74 @@
 \section{Estructuras}%%%%%%%%%%%%%%%%%%ESTRUCTURAS%%%%%%%%%%%%%%%%%%
 \subsection{RMQ (static)}
 Dado un arreglo y una operación asociativa idempotente, get(i, j) opera sobre el rango [i, j). Restricción: LVL $\ge$ 2*ceil(logn); Usar [ ] para llenar arreglo y luego build().
-\cppfile{estructuras/rmq.static}
+\cppfile{estructuras/rmq.static.cpp}
 \subsection{RMQ (dynamic)}
-\cppfile{estructuras/rmq.dynamic}
+\cppfile{estructuras/rmq.dynamic.cpp}
 \subsection{Fenwick Tree}
-\cppfile{estructuras/fenwick}
+\cppfile{estructuras/fenwick.cpp}
 \subsection{Union Find}
-\cppfile{estructuras/union.find}
+\cppfile{estructuras/union.find.cpp}
 \subsection{Disjoint Intervals}
-\cppfile{estructuras/disjoint.intervals}
+\cppfile{estructuras/disjoint.intervals.cpp}
 \subsection{RMQ (2D)}
-\cppfile{estructuras/rmq.2d}
+\cppfile{estructuras/rmq.2d.cpp}
 \subsection{Big Int}
-\cppfile{estructuras/bigint}
+\cppfile{estructuras/bigint.cpp}
 \subsection{Modnum}
-\cppfile{estructuras/mnum}
+\cppfile{estructuras/mnum.cpp}
 \subsection{Bittrie}
-\cppfile{estructuras/bitrie}
+\cppfile{estructuras/bitrie.cpp}
 
 
 \section{Strings}%%%%%%%%%%%%%%%%%%STRINGS%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Trie}
-\cppfile{string/trie}
+\cppfile{string/trie.cpp}
 \subsection{Suffix Array}
-\cppfile[-34]{string/suffix.array}
+\cppfile[-34]{string/suffix.array.cpp}
 \subsection{String Matching With Suffix Array}
-\cppfile[37-58]{string/suffix.array}
+\cppfile[37-58]{string/suffix.array.cpp}
 \subsection{LCP (Longest Common Prefix)}
-\cppfile[60-75]{string/suffix.array}
+\cppfile[60-75]{string/suffix.array.cpp}
 \subsection{Corasick}
-\cppfile[9-51]{string/corasick}
+\cppfile[9-51]{string/corasick.cpp}
 
 
 \section{Geometría}%%%%%%%%%%%%%%%%%%GEOMETRIA%%%%%%%%%%%%%%%%%%%%%%
 \#define EPS 1e-9
 \subsection{Punto}
-\cppfile{geometria/pto}
+\cppfile{geometria/pto.cpp}
 \subsection{Line}
-\cppfile{geometria/line}
+\cppfile{geometria/line.cpp}
 \subsection{Segment}
-\cppfile{geometria/segm}
+\cppfile{geometria/segm.cpp}
 \subsection{Rectangle}
-\cppfile{geometria/rect}
+\cppfile{geometria/rect.cpp}
 \subsection{Polygon Area}
-\cppfile{geometria/area}
+\cppfile{geometria/area.cpp}
 \subsection{Circle}
-\cppfile{geometria/circle}
+\cppfile{geometria/circle.cpp}
 \subsection{Point in Poly}
-\cppfile{geometria/point.in.poly}
+\cppfile{geometria/point.in.poly.cpp}
 \subsection{Convex Check CHECK}
-\cppfile{geometria/convex.check}
+\cppfile{geometria/convex.check.cpp}
 \subsection{Convex Hull}
-\cppfile{geometria/convex.hull}
+\cppfile{geometria/convex.hull.cpp}
 \subsection{Cut Polygon}
-\cppfile{geometria/cut.polygon}
+\cppfile{geometria/cut.polygon.cpp}
 \subsection{Bresenham}
-\cppfile{geometria/bresenham}
+\cppfile{geometria/bresenham.cpp}
 \subsection{Rotate Matrix}
-\cppfile{geometria/rotate}
+\cppfile{geometria/rotate.cpp}
 
 
 \section{Math}%%%%%%%%%%%%%%%%%%MATH%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Exp. de Matrices en log(n)}
+\cppfile{math/exp.mat.cpp}
 \subsection{Criba}
-\cppfile[19-29]{math/criba}
+\cppfile[19-29]{math/criba.cpp}
 \subsection{Factorizacion}
 Sea $n=\prod{p_i^{k_i}}$, fact(n) genera un map donde a cada $p_i$ le asocia su $k_i$
-\cppfile[31-42]{math/factorizacion}
+\cppfile[31-42]{math/factorizacion.cpp}
 \subsection{GCD}
 \begin{code}
 tipo gcd(tipo a, tipo b){return a?gcd(b %a, a):b;}
@@ -90,31 +92,31 @@ tipo gcd(tipo a, tipo b){return a?gcd(b %a, a):b;}
 tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \end{code}
 \subsection{Simpson}
-\cppfile{math/simpson}
+\cppfile{math/simpson.cpp}
 \subsection{Fraction}
-\cppfile{math/frac}
+\cppfile{math/frac.cpp}
 \subsection{Polinomio}
-\cppfile{math/polinomio}
+\cppfile{math/polinomio.cpp}
 
 
 \section{Grafos}%%%%%%%%%%%%%%%%%%GRAFOS%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dijkstra}
-\cppfile{grafos/dijkstra}
+\cppfile{grafos/dijkstra.cpp}
 \subsection{Bellman-Ford}
-\cppfile{grafos/bellman.ford}
+\cppfile{grafos/bellman.ford.cpp}
 \subsection{Floyd-Warshall}
-\cppfile{grafos/floyd.warshall}
+\cppfile{grafos/floyd.warshall.cpp}
 \subsection{2-SAT + Tarjan SCC}
-\cppfile{grafos/2sat}
+\cppfile{grafos/2sat.cpp}
 \subsection{Articulation Points}
-\cppfile{grafos/articulaciones}
+\cppfile{grafos/articulaciones.cpp}
 \subsection{LCA + Climb}
-\cppfile{grafos/lca.climb}
+\cppfile{grafos/lca.climb.cpp}
 \section{Network Flow}
 \subsection{Edmonds Karp’s}
-\cppfile{flow/edmonds.karps}
+\cppfile{flow/edmonds.karps.cpp}
 \subsection{Push-Relabel}
-\cppfile{flow/push.relabel}
+\cppfile{flow/push.relabel.cpp}
 
 
 \section{Ayudamemoria}%%%%%%%%%%%%%%%%%%AYUDAMEMORIA%%%%%%%%%%%%%%%%
