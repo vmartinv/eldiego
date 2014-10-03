@@ -14,11 +14,11 @@ struct frac{
 		tipo a = mcd(q,o.q);
 		return frac(p*(o.q/a)-o.p*(q/a), q*(o.q/a));}
 	frac operator*(frac o){
-		tipo a = mcd(q,o.q), b = mcd(o.q,p);
+		tipo a = mcd(q,o.p), b = mcd(o.q,p);
 		return frac((p/b)*(o.p/a), (q/a)*(o.q/b));}
 	frac operator/(frac o){
 		tipo a = mcd(q,o.q), b = mcd(o.p,p);
 		return frac((p/b)*(o.q/a),(q/a)*(o.p/b));}
-	bool operator<(frac o){return (*this-o).p<0;}
+	bool operator<(const frac &o) const{return p*o.q < o.p*q;}
 	bool operator==(frac o){return p==o.p&&q==o.q;}
 };
