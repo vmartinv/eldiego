@@ -4,6 +4,7 @@
 #include <cstring>
 #include <vector>
 #include <map>
+#include <cmath>
 #include <string>
 using namespace std;
 #define dprint(v) cerr << #v"=" << v << endl //;)
@@ -21,9 +22,9 @@ int criba[MAXP+1];
 vector<int> primos;
 
 void buscarprimos(){
-	forr(p, 2, MAXP+1) if(!criba[p]){
-		primos.push_back(p);
-		for(int m=2*p; m<=MAXP; m+=p)//borro los multiplos de p
+	int sq=sqrt(MAXP)+2;
+	forr(p, 2, sq) if(!criba[p]){
+		for(int m=p*p; m<=MAXP; m+=p)//borro los multiplos de p
 			if(!criba[m])criba[m]=p;
 	}
 }
