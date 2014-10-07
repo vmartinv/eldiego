@@ -21,7 +21,7 @@ vector<Edge> G[MAX];
 // Adds bidirectional edge
 void addEdge(int s, int t, ll cap){
 	G[s].push_back(Edge(t, G[t].size(), 0, cap));
-	G[t].push_back(Edge(s, G[s].size(), 0, 0));
+	G[t].push_back(Edge(s, G[s].size()-1, 0, 0));
 }
 
 bool dinic_bfs() {
@@ -44,14 +44,15 @@ bool dinic_bfs() {
 
 ll dinic_dfs(int u, ll f) {
 	if (u == dest) return f;
-	forall(e, G[u]){
-		if (e->cap <= e->f) continue;
-		int v = e->to;
+	for (int &i = work[u]; i < (int) G[u].size(); i++) {
+		Edge &e = G[u][i];
+		if (e.cap <= e.f) continue;
+		int v = e.to;
 		if (dist[v] == dist[u] + 1) {
-			ll df = dinic_dfs(v, min(f, e->cap - e->f));
+			ll df = dinic_dfs(v, min(f, e.cap - e.f));
 			if (df > 0) {
-				e->f += df;
-				G[v][e->rev].f -= df;
+				e.f += df;
+				G[v][e.rev].f -= df;
 				return df;
 			}
 		}
