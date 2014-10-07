@@ -10,7 +10,6 @@ const int MAX = 300;
 int nodes, src, dest;
 int dist[MAX], q[MAX], work[MAX];
 
-
 struct Edge {
 	int to, rev;
 	ll f, cap;
@@ -60,7 +59,7 @@ ll dinic_dfs(int u, ll f) {
 	return 0;
 }
 
-ll maxFlow(int _src, int _dest) {//O(V^2 E)
+ll maxFlow(int _src, int _dest) {//O(V^2 E)<
   src = _src;
   dest = _dest;
   ll result = 0;
