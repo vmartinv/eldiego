@@ -14,15 +14,15 @@ struct RMQ{
 		forr(i, sz, 2*sz) t[i]=neutro;
 		forn(i, 2*sz) dirty[i]=neutro2;
 	}
-	tipo2 predict(tipo2 k, int n){//sobre un arreglo de tamanio n
-		return k*n;	}
-	tipo2 acum(tipo2 k1, tipo2 k2){//acumula dos alteraciones
-		return k1+k2;}
 	tipo f(tipo v, tipo2 k){//la alteracion
 		return v+k;}
+	tipo2 acum(tipo2 k1, tipo2 k2){//acumula dos alteraciones
+		return k1+k2;}
+	tipo predict(tipo v, tipo2 k, int n){//sobre un arreglo de tamanio n
+		return v+k*n;	}
 		
 	void modify(tipo2 v, int cant, int n){
-		t[n]=f(t[n], predict(v, cant));//altera un nodo 
+		t[n]=predict(t[n], v, cant);//altera un nodo 
 		if(n<sz){//y marca sucio sus hijos
 			dirty[2*n  ]=acum(dirty[2*n  ], v);
 			dirty[2*n+1]=acum(dirty[2*n+1], v);
