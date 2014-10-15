@@ -23,7 +23,7 @@ struct bint{
     }
     void out(){
 		cout << n[l-1];
-		dforsn(i, 0, l-1) printf("%6.6llu", n[i]);//6=BASEXP!
+		dforn(i, l-1) printf("%6.6llu", n[i]);//6=BASEXP!
 	}
 	void invar(){
 		fill(n+l, n+LMAX, 0);
@@ -77,7 +77,7 @@ bint operator*(const bint&a, const bint&b){
 pair<bint, ll> ldiv(const bint& a, ll b){// c = a / b ; rm = a % b
 	bint c;
 	ll rm = 0;
-	dforsn(i, 0, a.l){
+	dforn(i, a.l){
         		rm = rm * BASE + a.n[i];
         		c.n[i] = rm / b;
         		rm %= b;
@@ -91,11 +91,11 @@ ll operator%(const bint&a, ll b){return ldiv(a, b).second;}
 pair<bint, bint> ldiv(const bint& a, const bint& b){
 	bint c;
     bint rm = 0;
-    dforsn(i, 0, a.l){
+    dforn(i, a.l){
         if (rm.l==1 && !rm.n[0])
             rm.n[0] = a.n[i];
         else{
-            dforsn(j, 0, rm.l) rm.n[j+1] = rm.n[j];
+            dforn(j, rm.l) rm.n[j+1] = rm.n[j];
             rm.n[0] = a.n[i];
             rm.l++;
         }

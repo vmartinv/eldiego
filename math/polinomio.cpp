@@ -18,7 +18,7 @@ struct poly {
 	}
 	tipo eval(tipo v) {
 		tipo sum = 0;
-		dforsn(i, 0, MAX_GR) sum=sum*v + p[i];
+		dforn(i, MAX_GR) sum=sum*v + p[i];
 		return sum;
 	}
 	//the following function generates the roots of the polynomial
