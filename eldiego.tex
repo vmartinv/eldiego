@@ -32,6 +32,8 @@ Dado un arreglo y una operación asociativa \emph{idempotente}, get(i, j) opera 
 \cppfile{estructuras/bigint.cpp}
 \subsection{Modnum}
 \cppfile{estructuras/mnum.cpp}
+\subsection{Treap}
+\cppfile[4-99]{estructuras/treap.cpp}
 \subsection{Bittrie}
 \cppfile{estructuras/bitrie.cpp}
 
@@ -185,6 +187,16 @@ signal(SIGSEGV, segm);
 \subsection*{Mejorar velocidad}
 \begin{code}
 ios::sync_with_stdio(false);
+\end{code}
+\subsection*{Mejorar velocidad 2}
+\begin{code}
+//Solo para enteros positivos
+inline void Scanf(int& a){
+	char c = 0;
+	while(c<33) c = getc(stdin);
+	a = 0;
+	while(c>33)	a = a*10 + c - '0', c = getc(stdin);
+}
 \end{code}
 \subsection*{Leer del teclado}
 \begin{code}
