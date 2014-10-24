@@ -24,6 +24,7 @@ vector<int> primos;
 void buscarprimos(){
 	int sq=sqrt(MAXP)+2;
 	forr(p, 2, sq) if(!criba[p]){
+		primos.push_back(p);
 		for(int m=p*p; m<=MAXP; m+=p)//borro los multiplos de p
 			if(!criba[m])criba[m]=p;
 	}
