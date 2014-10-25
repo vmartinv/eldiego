@@ -16,7 +16,7 @@ using namespace std;
 typedef long long ll;
 typedef pair<int,int> ii;
 
-#define MAXP 130000	//no necesariamente primo
+#define MAXP 46341	//no necesariamente primo
 int criba[MAXP+1];
 vector<int> primos;
 
