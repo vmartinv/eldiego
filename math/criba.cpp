@@ -20,13 +20,13 @@ typedef pair<int,int> ii;
 #define MAXP 80000	//no necesariamente primo
 int criba[MAXP+1];
 vector<int> primos;
-
 void buscarprimos(){
-	int sq=sqrt(MAXP)+2;
-	forr(p, 2, sq) if(!criba[p]){
+	int sq=sqrt(MAXP)+1;
+	forr(p, 2, MAXP+1) if(!criba[p]){
 		primos.push_back(p);
-		for(int m=p*p; m<=MAXP; m+=p)//borro los multiplos de p
-			if(!criba[m])criba[m]=p;
+		if(p<=sq)
+			for(int m=p*p; m<=MAXP; m+=p)//borro los multiplos de p
+				if(!criba[m])criba[m]=p;
 	}
 }
 
