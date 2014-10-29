@@ -1,6 +1,11 @@
-#define abs_val (a) (((a)>0) ? (a) : -(a))
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+typedef long long ll;
 
-ll mulmod (ll a, ll b, ll c) { // returns (a*b)%c, and minimize overflor
+ll gcd(ll a, ll b){return a?gcd(b %a, a):b;}
+
+ll mulmod (ll a, ll b, ll c) { //returns (a*b)%c, and minimize overfloor
 	ll x = 0, y = a%c;
 	while (b > 0){
 		if (b % 2 == 1) x = (x+y) % c;
@@ -9,8 +14,6 @@ ll mulmod (ll a, ll b, ll c) { // returns (a*b)%c, and minimize overflor
 	}
 	return x % c;
 }
-
-ll gcd(ll a, ll b){return a?gcd(b %a, a):b;}
 
 ll pollard_rho (ll n){
 	int i = 0, k = 2;
@@ -24,8 +27,7 @@ ll pollard_rho (ll n){
 	}
 }
 
-int main()
-{
+int main(){
 	ll n = 2063512844981574047LL;
 	ll ans = pollard_rho (n);
 	if (ans > n / ans) ans = n / ans;
