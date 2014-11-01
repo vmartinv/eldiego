@@ -23,7 +23,7 @@ vector<int> primos;
 void buscarprimos(){
 	forr(p, 2, MAXP+1) if(!criba[p]){
 		primos.push_back(p);
-		for(int m=2*p; m<=MAXP; m+=p)//borro los multiplos de p
+		for(int m=p*p; m<=MAXP; m+=p)//borro los multiplos de p
 			if(!criba[m])criba[m]=p;
 	}
 }

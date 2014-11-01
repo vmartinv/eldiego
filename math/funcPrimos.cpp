@@ -1,10 +1,11 @@
 //Testear!
-
+#include <cmath>
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
 #include <vector>
+#include <cassert>
 #include <map>
 #include <string>
 using namespace std;
@@ -18,14 +19,14 @@ using namespace std;
 typedef long long ll;
 typedef pair<int,int> ii;
 
-#define MAXP 46341	//no necesariamente primo
+#define MAXP 1000000	//no necesariamente primo
 int criba[MAXP+1];
 vector<int> primos;
 
 void buscarprimos(){
-	forr(p, 2, MAXP+1) if(!criba[p]){
+	forr(p, 2, 1000) if(!criba[p]){
 		primos.push_back(p);
-		for(int m=2*p; m<=MAXP; m+=p)//borro los multiplos de p
+		for(int m=p*p; m<=MAXP; m+=p)//borro los multiplos de p
 			if(!criba[m])criba[m]=p;
 	}
 }
@@ -43,48 +44,42 @@ map<ll,ll> fact(ll n){
 	return ret;
 }
 
-ll numPrimeFactors (ll n)
-{
+ll numPrimeFactors (ll n){
   ll rta = 0;
   map<ll,ll> f=fact(n);
   forall(it, f) rta += it->second;
   return rta;
 }
 
-ll numDiffPrimeFactors (ll n)
-{
+ll numDiffPrimeFactors (ll n){
   ll rta = 0;
   map<ll,ll> f=fact(n);
   forall(it, f) rta += 1;
   return rta;
 }
 
-ll sumPrimeFactors (ll n)
-{
+ll sumPrimeFactors (ll n){
   ll rta = 0;
   map<ll,ll> f=fact(n);
   forall(it, f) rta += it->first;
   return rta;
 }
 
-ll numDiv (ll n)
-{
+ll numDiv (ll n){
   ll rta = 1;
   map<ll,ll> f=fact(n);
   forall(it, f) rta *= (it->second + 1);
   return rta;
 }
 
-ll sumDiv (ll n)
-{
+ll sumDiv (ll n){
   ll rta = 1;
   map<ll,ll> f=fact(n);
   forall(it, f) rta *= ((ll)pow((double)it->first, it->second + 1.0)-1) / (it->first-1); 
   return rta;
 }
 
-ll eulerPhi (ll n)
-{
+ll eulerPhi (ll n){
   ll rta = n;
   map<ll,ll> f=fact(n);
   forall(it, f) rta -= rta / it->first;
@@ -94,13 +89,15 @@ ll eulerPhi (ll n)
 
 int main() {
 	buscarprimos();
-	int x=24;
-	cout << "x = " << x << endl;
-  cout << "Numero de factores primos: " << numPrimeFactors(n) << endl;
-  cout << "Numero de distintos factores primos: " << numDiffPrimeFactors(n) << endl;
-  cout << "Suma de factores primos: " << sumPrimeFactors(n) << endl;
-  cout << "Numero de divisores: " << numDiv(n) << endl;
-  cout << "Suma de divisores: " << sumDiv(n) << endl;
-  cout << "Phi de Euler: " << eulerPhi(n) << endl;
-  return 0;
+	int x;
+	while(cout << "x=", cin >> x){
+		cout << "x = " << x << endl;
+		cout << "Numero de factores primos: " << numPrimeFactors(x) << endl;
+		cout << "Numero de distintos factores primos: " << numDiffPrimeFactors(x) << endl;
+		cout << "Suma de factores primos: " << sumPrimeFactors(x) << endl;
+		cout << "Numero de divisores: " << numDiv(x) << endl;
+		cout << "Suma de divisores: " << sumDiv(x) << endl;
+		cout << "Phi de Euler: " << eulerPhi(x) << endl;
+	}
+	return 0;
 }
