@@ -2,11 +2,11 @@
 %  pdflatex eldiego.tex
 %"The PDF file may contain up to 25 pages of reference material, single-sided, letter or A4 size, with text and illustrations readable by a person with correctable eyesight without magnification from a distance of 1/2 meter."
 \input{preamble.tex}
+\usepackage{amsmath}
 \begin{document}
 \def\title{El Diego 2.0}
 \centering{\includegraphics[width=3.5cm]{fotodiego}}
 \tableofcontents\newpage
-
  
 \section{algorithm}%%%%%%%%%%%%%%%%%%ALGORITHM%%%%%%%%%%%%%%%%%%
 \input{algorithm.tex}
@@ -89,12 +89,24 @@ Dado un arreglo y una operación asociativa \emph{idempotente}, get(i, j) opera 
 
 
 \section{Math}%%%%%%%%%%%%%%%%%%MATH%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sumatorias}
+{\small
+$$\sum_{i=m}^n i = \frac{n(n+1)}{2} - \frac{m(m-1)}{2} = \frac{(n+1-m)(n+m)}{2}$$
+$$\sum_{i=0}^n i = \sum_{i=1}^n i = \frac{n(n+1)}{2}$$
+$$\sum_{i=0}^n i^2 = \frac{n(n+1)(2n+1)}{6} = \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6}$$
+$$\sum_{i=0}^n i(i-1) = \frac{8}{6}(\frac{n}{2})(\frac{n}{2}+1)(n+1)$$ (doubles) $\rightarrow$ Sino ver caso impar y par
+$$\sum_{i=0}^n i^3 = \left(\frac{n(n+1)}{2}\right)^2 = \frac{n^4}{4} + \frac{n^3}{2} + \frac{n^2}{4} = \left[\sum_{i=1}^n i\right]^2$$
+$$\sum_{i=0}^n i^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30} = \frac{n^5}{5} + \frac{n^4}{2} + \frac{n^3}{3} - \frac{n}{30}$$
+$$\sum_{i=0}^n i^p = \frac{(n+1)^{p+1}}{p+1} + \sum_{k=1}^p\frac{B_k}{p-k+1}{p\choose k}(n+1)^{p-k+1}$$
+}%
 \subsection{Combinatorio}
 \cppfile{math/combinatorio.cpp}
 \subsection{Exp. de Numeros Mod.}
 \cppfile[2]{math/exp.mod.cpp}
-\subsection{Exp. de Matrices en log(n)}
+\subsection{Exp. de Matrices y Fibonacci en log(n)}
 \cppfile{math/exp.mat.cpp}
+\subsection{Funciones de primos}
+\cppfile[47-87]{math/func.primos.cpp}
 \subsection{Phollard's Rho}
 \cppfile[8-36]{math/phollards.rho.cpp}
 \subsection{Criba}
