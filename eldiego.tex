@@ -41,6 +41,8 @@ Dado un arreglo y una operación asociativa \emph{idempotente}, get(i, j) opera 
 \section{Algos}%%%%%%%%%%%%%%%%%%ALGORITMOS%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Longest Increasing Subsecuence}
 \cppfile[14-42]{algos/lis.cpp}
+\subsection{Manacher}
+\cppfile[20-37]{algos/manacher.cpp}
 
 
 \section{Strings}%%%%%%%%%%%%%%%%%%STRINGS%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -122,6 +124,8 @@ tipo gcd(tipo a, tipo b){return a?gcd(b %a, a):b;}
 \begin{code}
 tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \end{code}
+\subsection{Inversos}
+\cppfile[7-16]{math/inversos.cpp}
 \subsection{Simpson}
 \cppfile{math/simpson.cpp}
 \subsection{Fraction}
@@ -146,7 +150,7 @@ tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \subsection{Articulation Points}
 \cppfile{grafos/articulaciones.cpp}
 \subsection{Comp. Biconexas y Puentas}
-\cppfile{grafos/biconexas.bridge.cpp}
+\cppfile[28-76]{grafos/biconexas.bridge.cpp}
 \subsection{LCA + Climb}
 \cppfile{grafos/lca.climb.cpp}
 \section{Network Flow}
