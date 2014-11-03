@@ -15,10 +15,11 @@ typedef pair<int, int> ii;
 const int MAXN=100100;
 
 string s;
-
-
-int d1[MAXN];
-int d2[MAXN];
+int d1[MAXN];//d1[i]=long del maximo palindromo impar con centro en i
+int d2[MAXN];//d2[i]=analogo pero para longitud par
+//0 1 2 3 4
+//a a b c c <--d1[2]=3
+//a a b b <--d2[2]=2 (estan uno antes)
 void manacher(){
 	int l=0, r=-1, n=sz(s);
 	forn(i, n){
