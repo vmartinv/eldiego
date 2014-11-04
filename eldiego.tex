@@ -91,8 +91,10 @@ Dado un arreglo y una operación asociativa \emph{idempotente}, get(i, j) opera 
 
 
 \section{Math}%%%%%%%%%%%%%%%%%%MATH%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Sumatorias}
+\subsection{Identidades}
 {\small
+$$\sum_{i=0}^n\binom{n}{i}=2^n$$
+$$\sum_{i=0}^n i\binom{n}{i}=n*2^{n-1}$$
 $$\sum_{i=m}^n i = \frac{n(n+1)}{2} - \frac{m(m-1)}{2} = \frac{(n+1-m)(n+m)}{2}$$
 $$\sum_{i=0}^n i = \sum_{i=1}^n i = \frac{n(n+1)}{2}$$
 $$\sum_{i=0}^n i^2 = \frac{n(n+1)(2n+1)}{6} = \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6}$$
@@ -108,7 +110,7 @@ $$\sum_{i=0}^n i^p = \frac{(n+1)^{p+1}}{p+1} + \sum_{k=1}^p\frac{B_k}{p-k+1}{p\c
 \subsection{Exp. de Matrices y Fibonacci en log(n)}
 \cppfile{math/exp.mat.cpp}
 \subsection{Funciones de primos}
-\cppfile[47-87]{math/func.primos.cpp}
+\cppfile[46-100]{math/func.primos.cpp}
 \subsection{Phollard's Rho}
 \cppfile[8-36]{math/phollards.rho.cpp}
 \subsection{Criba}
