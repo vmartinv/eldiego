@@ -109,6 +109,8 @@ $$\sum_{i=0}^n i^p = \frac{(n+1)^{p+1}}{p+1} + \sum_{k=1}^p\frac{B_k}{p-k+1}{p\c
 \cppfile[2]{math/exp.mod.cpp}
 \subsection{Exp. de Matrices y Fibonacci en log(n)}
 \cppfile{math/exp.mat.cpp}
+\subsection{Teorema Chino del Resto}
+$$$$
 \subsection{Funciones de primos}
 \cppfile[46-100]{math/func.primos.cpp}
 \subsection{Phollard's Rho}
@@ -242,6 +244,6 @@ freopen("/dev/tty", "a", stdin);
 \subsection*{File setup}
 \begin{code}
 //tambien se pueden usar comas: {a, x, m, l}
-for i in {a..k}; do cp template.cpp $i.cpp; touch $i.in; done
+for i in {a..k}; do cp template.cpp $i.cpp && touch $i.in; done
 \end{code}
 \end{document}
