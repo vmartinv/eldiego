@@ -1,4 +1,3 @@
-//Testear!
 #include <cmath>
 #include <iostream>
 #include <cstdio>
@@ -19,18 +18,18 @@ using namespace std;
 typedef long long ll;
 typedef pair<int,int> ii;
 
-#define MAXP 1000000	//no necesariamente primo
+#define MAXP 500000	//no necesariamente primo
 int criba[MAXP+1];
 vector<int> primos;
-
 void buscarprimos(){
-	forr(p, 2, 1000) if(!criba[p]){
+	int sq=sqrt(MAXP)+1;
+	forr(p, 2, MAXP+1) if(!criba[p]){
 		primos.push_back(p);
-		for(int m=p*p; m<=MAXP; m+=p)//borro los multiplos de p
-			if(!criba[m])criba[m]=p;
+		if(p<=sq)
+			for(int m=p*p; m<=MAXP; m+=p)//borro los multiplos de p
+				if(!criba[m])criba[m]=p;
 	}
 }
-
 //factoriza bien numeros hasta (maximo primo)^2
 map<ll,ll> fact(ll n){
 	map<ll,ll> ret;
@@ -79,18 +78,30 @@ ll sumDiv (ll n){
   return rta;
 }
 
-ll eulerPhi (ll n){
+ll eulerPhi (ll n){ // con criba: O(lg n)
   ll rta = n;
   map<ll,ll> f=fact(n);
   forall(it, f) rta -= rta / it->first;
   return rta;
 }
 
+ll eulerPhi2 (ll n){ // O (sqrt n)
+	ll r = n;
+	forr (i,2,n+1){
+		if ((ll)i*i > n)
+			break;
+		if (n % i == 0){
+			while (n%i == 0) n/=i;
+			r -= r/i;
+		}}
+	if (n != 1)
+		r-= r/n;
+	return r;
+}
 
 int main() {
 	buscarprimos();
-	int x;
-	while(cout << "x=", cin >> x){
+	forr (x,1, 500000){
 		cout << "x = " << x << endl;
 		cout << "Numero de factores primos: " << numPrimeFactors(x) << endl;
 		cout << "Numero de distintos factores primos: " << numDiffPrimeFactors(x) << endl;
@@ -101,3 +112,4 @@ int main() {
 	}
 	return 0;
 }
+
