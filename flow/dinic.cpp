@@ -69,5 +69,8 @@ ll maxFlow(int _src, int _dest) {//O(V^2 E)<
     while(ll delta = dinic_dfs(src, INF))
       result += delta;
   }
+  
+  // todos los nodos  con dist[v]!=-1 vs los que tienen dist[v]==-1 forman el min cut
+  
   return result;
 }
