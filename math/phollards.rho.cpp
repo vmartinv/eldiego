@@ -15,6 +15,30 @@ ll mulmod (ll a, ll b, ll c) { //returns (a*b)%c, and minimize overfloor
 	return x % c;
 }
 
+bool es_primo_prob (ll n, int a)
+{
+	ll s = 0,d = n-1;
+	while (d % 2 == 0) s++,d/=2;
+	
+	ll x = expmod(a,d,n);
+	if ((x == 1) || (x+1 == n)) return true;
+	
+	forn (i, s-1){
+		x = (x*x)%n;
+		if (x == 1) return false;
+		if (x+1 == n) return true;
+	}
+	return false;
+}
+		
+bool miller_rabin (ll n){ //devuelve true si n es primo
+	const int ar[] = {2,3,5,7,11,13,17,19,23};
+	forn (j,9)
+		if (!es_primo_prob(n,a))
+			return false;
+	return true;
+}
+
 ll pollard_rho (ll n){
 	int i = 0, k = 2;
 	ll x = 3, y = 3;
