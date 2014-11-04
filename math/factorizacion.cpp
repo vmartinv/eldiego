@@ -43,7 +43,7 @@ map<ll,ll> fact(ll n){ //O (cant primos)
 	return ret;
 }
 
-//~ //factoriza bien numeros hasta MAXP
+//factoriza bien numeros hasta MAXP
 map<ll,ll> fact2(ll n){ //O (lg n)
 	map<ll,ll> ret;
 	while (criba[n]){
