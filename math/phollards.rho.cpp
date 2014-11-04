@@ -1,7 +1,22 @@
-#include <cmath>
+#include <iostream>
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+#define dprint(v) cerr << #v"=" << v << endl //;)
+#define forr(i,a,b) for(int i=(a); i<(b); i++)
+#define forn(i,n) forr(i,0,n)
+
 typedef long long ll;
+
+ll expmod (ll b, ll e, ll m){//O(log b)
+	if(!e) return 1;
+	ll q= expmod(b,e/2,m); q=(q*q)%m;
+	return e%2? (b * q)%m : q;
+}
 
 ll gcd(ll a, ll b){return a?gcd(b %a, a):b;}
 
@@ -34,7 +49,7 @@ bool es_primo_prob (ll n, int a)
 bool miller_rabin (ll n){ //devuelve true si n es primo
 	const int ar[] = {2,3,5,7,11,13,17,19,23};
 	forn (j,9)
-		if (!es_primo_prob(n,a))
+		if (!es_primo_prob(n,ar[j]))
 			return false;
 	return true;
 }
@@ -53,6 +68,7 @@ ll pollard_rho (ll n){
 
 int main(){
 	ll n = 2063512844981574047LL;
+	cout << miller_rabin (n) << endl;
 	ll ans = pollard_rho (n);
 	if (ans > n / ans) ans = n / ans;
 	printf ("%lld %lld\n", ans, n / ans);
