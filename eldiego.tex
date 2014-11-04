@@ -113,7 +113,7 @@ $$\sum_{i=0}^n i^p = \frac{(n+1)^{p+1}}{p+1} + \sum_{k=1}^p\frac{B_k}{p-k+1}{p\c
 $$y=\sum_{j=1}^n (x_j*(\prod_{i=1, i\neq j}^n m_i)_{m_j}^{-1}*\prod_{i=1, i\neq j}^n m_i)$$
 \subsection{Funciones de primos}
 \cppfile[46-100]{math/func.primos.cpp}
-\subsection{Phollard's Rho}
+\subsection{Phollard's Rho (rolando)}
 \cppfile[23-67]{math/phollards.rho.cpp}
 \subsection{Criba}
 \cppfile[20-31]{math/criba.cpp}
@@ -157,9 +157,11 @@ tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \cppfile[28-76]{grafos/biconexas.bridge.cpp}
 \subsection{LCA + Climb}
 \cppfile{grafos/lca.climb.cpp}
+\subsection{Heavy Light Decomposition}
+\cppfile[21-55]{grafos/heavylight.cpp}
 
 
-\section{Network Flow}%%%%%%%%%%%%%%%%%%GRAFOS%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Network Flow}%%%%%%%%%%%%%%%%%%FLOW%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dinic}
 \cppfile[10-73]{flow/dinic.cpp}
 \subsection{Konig}
