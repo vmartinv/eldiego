@@ -32,6 +32,8 @@ ll mulmod (ll a, ll b, ll c) { //returns (a*b)%c, and minimize overfloor
 
 bool es_primo_prob (ll n, int a)
 {
+	 if (n == a)
+        return true;
 	ll s = 0,d = n-1;
 	while (d % 2 == 0) s++,d/=2;
 	
