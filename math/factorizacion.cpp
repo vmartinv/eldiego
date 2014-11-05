@@ -54,7 +54,18 @@ map<ll,ll> fact2(ll n){ //O (lg n)
 	return ret;
 }
 
-
+map<ll,ll> f3;
+void fact3(ll n){ //O (lg n)^3. un solo numero
+    if (n == 1) return;
+    if (miller_rabin(n))
+        f3[n]++;
+    else{
+        ll aux = pollard_rho(n);
+        fac3(aux); fac3(n/aux);        
+    }
+	if(n>1) f3[n]++;
+	return;
+}
 
 int main() {
 	buscarprimos();
