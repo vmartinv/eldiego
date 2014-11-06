@@ -61,15 +61,15 @@ void flow(int s, int t) {
 			}
 		}
 		if (pre[t] == -1) break;
+		forn(u,n) 
+			if (dist[u] == INF) pot[u] = INF;
+			else pot[u] += dist[u];
+		mxFlow +=cap[t];
+		mnCost +=cap[t]*pot[t];
 		for (int v = t; v != s; v = e[pre[v]].u) {
 			e[pre[v]].flow += cap[t];
 			e[pre[v]^1].flow -= cap[t];
 		}
-		mxFlow +=cap[t];
-		mnCost +=cap[t]*(dist[t]-pot[s]+pot[t]);
-		forn(u,n) 
-			if (dist[u] == INF) pot[u] = INF;
-			else pot[u] += dist[u];
 	}
 }
 
