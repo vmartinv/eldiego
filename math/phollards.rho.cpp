@@ -33,8 +33,7 @@ ll mulmod (ll a, ll b, ll c) { //returns (a*b)%c, and minimize overfloor
 
 bool es_primo_prob (ll n, int a)
 {
-	 if (n == a)
-        return true;
+	if (n == a) return true;
 	ll s = 0,d = n-1;
 	while (d % 2 == 0) s++,d/=2;
 	
@@ -50,6 +49,7 @@ bool es_primo_prob (ll n, int a)
 }
 		
 bool miller_rabin (ll n){ //devuelve true si n es primo
+	if (n == 1)	return false;
 	const int ar[] = {2,3,5,7,11,13,17,19,23};
 	forn (j,9)
 		if (!es_primo_prob(n,ar[j]))
@@ -68,6 +68,41 @@ ll pollard_rho (ll n){
 		if (d != 1) return d;
 		if (i == k) y = x, k*=2;
 	}
+}
+
+ll brent(ll n){
+		srand(time(NULL));
+        if (n%2 == 0)
+                return 2;
+        ll y = rand()%(n-1)+1, c = rand()%(n-1)+1, m = rand()%(n-1)+1;
+        ll g,r,q,x,k,ys;
+        g = r = q = 1;
+        while (g==1){             
+                x = y;
+                forn (i,r)
+                     y = ((y*y)%n+c)%n;
+                k = 0;
+                while (k<r && g==1){
+                        ys = y;
+                        forn (i,min(m,r-k)){
+                                y = ((y*y)%n+c)%n;
+                                q = q*(x-y)%n;
+							}
+                        g = gcd(q,n);
+                        k = k + m;
+					}
+                r = r*2;
+			}
+        if (g==n){
+                while (true){
+                        ys = ((ys*ys)%n+c)%n;
+                        g = gcd(abs(x-ys),n);
+                        if (g>1)
+                              break;
+					}
+				}
+			
+        return g;   
 }
 
 int main(){
