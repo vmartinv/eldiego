@@ -10,7 +10,6 @@ using namespace std;
 #define dprint(v) cerr << #v"=" << v << endl //;)
 #define forr(i,a,b) for(int i=(a); i<(b); i++)
 #define forn(i,n) forr(i,0,n)
-
 typedef long long ll;
 
 ll expmod (ll b, ll e, ll m){//O(log b)
@@ -57,14 +56,16 @@ bool miller_rabin (ll n){ //devuelve true si n es primo
 	return true;
 }
 
-ll pollard_rho (ll n){
+ll pollard_rho (ll n, ll c=1){
 	int i = 0, k = 2;
 	ll x = 3, y = 3;
+	if(c>=n) return -1;//FAILURE
+	//~ if(c!=1) dprint(c);
 	while (1){
 		i++;
-		x = (mulmod (x,x,n) + n - 1) % n;
+		x = (mulmod (x,x,n) + c) % n;
 		ll d = gcd (abs(y-x), n);
-		if(d==n) return -1;//FAILURE
+		if(d==n) return pollard_rho(n, c+1);
 		if (d != 1) return d;
 		if (i == k) y = x, k*=2;
 	}
@@ -110,9 +111,9 @@ int main(){
 	srand(time(NULL));
 	while(1){
 		n=rand()%(ll(1e18))+50;
-		dprint(n);
+		//~ dprint(n);
 		if(!miller_rabin(n)){
-			dprint(n);
+			//~ dprint(n);
 			ll ans = pollard_rho (n);
 			assert(!(n%ans) && ans>0);
 		}
