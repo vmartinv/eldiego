@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <vector>
+#include <cassert>
 #include <algorithm>
 #include <cmath>
 using namespace std;
@@ -63,16 +64,33 @@ ll pollard_rho (ll n){
 		i++;
 		x = (mulmod (x,x,n) + n - 1) % n;
 		ll d = gcd (abs(y-x), n);
-		if (d != 1 && d != n) return d;
+		if(d==n) return -1;//FAILURE
+		if (d != 1) return d;
 		if (i == k) y = x, k*=2;
 	}
 }
 
 int main(){
-	ll n = 2063512844981574047LL;
-	cout << miller_rabin (n) << endl;
-	ll ans = pollard_rho (n);
-	if (ans > n / ans) ans = n / ans;
-	printf ("%lld %lld\n", ans, n / ans);
+	ll n;
+	srand(time(NULL));
+	while(1){
+		n=rand()%(ll(1e18))+50;
+		dprint(n);
+		if(!miller_rabin(n)){
+			dprint(n);
+			ll ans = pollard_rho (n);
+			assert(!(n%ans) && ans>0);
+		}
+	}
+	n = 2063512844981574047LL;
+	while(cin >> n){
+		if(miller_rabin (n))
+			cout << n << " es primo.\n";
+		else{
+			ll ans = pollard_rho (n);
+			if (ans > n / ans) ans = n / ans;
+			printf ("%lld = %lld * %lld\n", n, ans, n / ans);
+		}
+    }
     return 0;
 }
