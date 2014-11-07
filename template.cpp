@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <vector>
+#include <set>
 #include <algorithm>
 using namespace std;
 #define dprint(v) cerr << #v"=" << v << endl //;)
@@ -12,6 +13,9 @@ using namespace std;
 #define forall(it,v) for(typeof(v.begin()) it=v.begin();it!=v.end();++it)
 #define sz(c) ((int)c.size())
 #define zero(v) memset(v, 0, sizeof(v))
+#define pb push_back
+#define fst first
+#define snd second
 typedef long long ll;
 typedef pair<int,int> ii;
 
@@ -21,6 +25,5 @@ int main() {
 	while(){
 		
 	}
-    return 0;
+	return 0;
 }
-
