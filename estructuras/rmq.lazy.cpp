@@ -11,7 +11,7 @@ struct RMQ{
 	Elem &operator[](int p){return t[sz+p];}
 	void init(int n){//O(nlgn)
 		sz = 1 << (32-__builtin_clz(n));
-		forr(i, sz, 2*sz) t[i]=neutro;
+		forn(i, 2*sz) t[i]=neutro;
 		forn(i, 2*sz) dirty[i]=neutro2;
 	}
 	void push(int n, int a, int b){//propaga el dirty a sus hijos
