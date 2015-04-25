@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <cmath>
 #include <vector>
 #include <set>
 #include <algorithm>
@@ -18,7 +19,6 @@ using namespace std;
 #define snd second
 typedef long long ll;
 typedef pair<int,int> ii;
-
 
 int main() {
 	freopen("input.in", "r", stdin);
