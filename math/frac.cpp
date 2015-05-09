@@ -1,7 +1,7 @@
+tipo mcd(tipo a, tipo b){return a?mcd(b%a, a):b;}
 struct frac{
 	tipo p,q;
 	frac(tipo p=0, tipo q=1):p(p),q(q) {norm();}
-	tipo mcd(tipo a, tipo b){return a?mcd(b %a, a):b;}
 	void norm(){
 		tipo a = mcd(p,q);
 		if(a) p/=a, q/=a;

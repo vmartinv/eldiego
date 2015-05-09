@@ -8,7 +8,7 @@ struct RMQ{
 	tipo &operator[](int p){return t[sz+p];}
 	void init(int n){//O(nlgn)
 		sz = 1 << (32-__builtin_clz(n));
-		forr(i, sz, 2*sz) t[i]=neutro;
+		forn(i, 2*sz) t[i]=neutro;
 	}
 	void updall(){//O(n)
 		dforn(i, sz) t[i]=operacion(t[2*i], t[2*i+1]);}

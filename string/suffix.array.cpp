@@ -4,8 +4,8 @@
 int sa[MAX_N], r[MAX_N], n;
 string s; //input string, n=sz(s)
 
+int f[MAX_N], tmpsa[MAX_N];
 void countingSort(int k){
-	int f[MAX_N], tmpsa[MAX_N];
 	zero(f);
 	forn(i, n) f[rBOUND(i+k)]++;
 	int sum=0;
