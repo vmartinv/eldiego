@@ -5,11 +5,12 @@ struct bint{
     int l;
     ll n[LMAX];
     bint(ll x=0){
-        l=0;
+        l=1;
         forn(i, LMAX){
+            if (x) l=i+1;
             n[i]=x%BASE;
             x/=BASE;
-            l+=!!x||!i;
+            
         }
     }
     bint(string x){
