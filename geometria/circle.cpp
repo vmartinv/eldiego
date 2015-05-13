@@ -29,3 +29,40 @@ bool circle2PtsRad(pto p1, pto p2, double r, pto &c){
         c=(p1+p2)/2+perp(p2-p1)*sqrt(det);
         return true;
 }
+
+#define sqr(a) ((a)*(a))
+#define feq(a,b) (fabs((a)-(b))<EPS)
+pair<tipo, tipo> ecCuad(tipo a, tipo b, tipo c){//a*x*x+b*x+c=0
+	tipo dx = sqrt(b*b-4.0*a*c);
+	return make_pair((-b + dx)/(2.0*a),(-b - dx)/(2.0*a));
+}
+
+pair<pto, pto> interCL(Circle c, line l){
+	bool sw=false;
+	if((sw=feq(0,l.b))){
+	swap(l.a, l.b);
+	swap(c.o.x, c.o.y);
+	}
+	pair<tipo, tipo> rc = ecCuad(
+	sqr(l.a)+sqr(l.b),
+	2.0*l.a*l.b*c.o.y-2.0*(sqr(l.b)*c.o.x+l.c*l.a),
+	sqr(l.b)*(sqr(c.o.x)+sqr(c.o.y)-sqr(c.r))+sqr(l.c)-2.0*l.c*l.b*c.o.y
+	);
+	pair<pto, pto> p( pto(rc.first, (l.c - l.a * rc.first) / l.b),
+					  pto(rc.second, (l.c - l.a * rc.second) / l.b) );
+	if(sw){
+	swap(p.first.x, p.first.y);
+	swap(p.second.x, p.second.y);
+	}
+	return p;
+}
+
+pair<pto, pto> interCC(Circle c1, Circle c2){
+	line l;
+	l.a = c1.o.x-c2.o.x;
+	l.b = c1.o.y-c2.o.y;
+	l.c = (sqr(c2.r)-sqr(c1.r)+sqr(c1.o.x)-sqr(c2.o.x)+sqr(c1.o.y)
+	-sqr(c2.o.y))/2.0;
+	dprint(l.a);dprint(l.b);dprint(l.c);
+	return interCL(c1, l);
+}
