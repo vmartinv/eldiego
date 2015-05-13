@@ -1,0 +1,7 @@
+void extendedEuclid (tint a, tint b){ //x,y
+  if (!b) { x = 1; y = 0; d = a; return}
+  extendedEuclid (b, a%b);
+  tint x1 = y;
+  tint y1 = x - (a/b) * y;
+  x = x1; y = y1;
+}
