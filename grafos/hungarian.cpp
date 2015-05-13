@@ -10,7 +10,7 @@ void updtree(int x) {
 		slk[y] = lx[x] + ly[y] - mt[x][y];
 		slkx[y] = x;
 } }
-int hungar() { //Matching máximo de mayor costo en grafos dirigidos (N^3)
+int hungar(){//Matching maximo de mayor costo en grafos dirigidos (N^3)
 	forn(i, n) {
 		ly[i] = 0;
 		lx[i] = *max_element(mt[i], mt[i]+n); }
@@ -22,7 +22,7 @@ int hungar() { //Matching máximo de mayor costo en grafos dirigidos (N^3)
 		memset(prv, -1, sizeof(prv));
 		memset(slk, 0x7f, sizeof(slk));
 		queue<int> q;
-		#define bpone(e, p) { q.push(e); prv[e] = p; S[e] = 1; updtree(e); }
+#define bpone(e, p) { q.push(e); prv[e] = p; S[e] = 1; updtree(e); }
 		forn(i, n) if (xy[i] == -1) { bpone(i, -2); break; }
 		int x=0, y=-1;
 		while (y==-1) {

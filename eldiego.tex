@@ -4,8 +4,8 @@
 \input{preamble.tex}
 \usepackage{amsmath}
 \begin{document}
-\def\title{El Diego 2.0}
-\centering{\includegraphics[width=3.5cm]{fotodiego}}
+\def\title{Caloventor en Dos - Universidad Nacional de Rosario}
+%\centering{\includegraphics[width=3.5cm]{fotodiego}}
 \tableofcontents\newpage
  
 \section{algorithm}%%%%%%%%%%%%%%%%%%ALGORITHM%%%%%%%%%%%%%%%%%%
@@ -14,7 +14,7 @@
 
 \section{Estructuras}%%%%%%%%%%%%%%%%%%ESTRUCTURAS%%%%%%%%%%%%%%%%%%
 \subsection{RMQ (static)}
-Dado un arreglo y una operación asociativa \emph{idempotente}, get(i, j) opera sobre el rango [i, j). Restricción: LVL $\ge$ ceil(logn); Usar [ ] para llenar arreglo y luego build().
+Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera sobre el rango [i, j). Restriccion: LVL $\ge$ ceil(logn); Usar [ ] para llenar arreglo y luego build().
 \cppfile{estructuras/rmq.static.cpp}
 \subsection{RMQ (dynamic)}
 \cppfile{estructuras/rmq.dynamic.cpp}
@@ -34,8 +34,8 @@ Dado un arreglo y una operación asociativa \emph{idempotente}, get(i, j) opera 
 \cppfile{estructuras/mnum.cpp}
 \subsection{Treap}
 \cppfile[4-99]{estructuras/treap.cpp}
-\subsection{Gain-Cost Set}
-\cppfile[20-43]{estructuras/gain-cost.set.cpp}
+%\subsection{Gain-Cost Set}
+%\cppfile[20-43]{estructuras/gain-cost.set.cpp}
 
 
 \section{Algos}%%%%%%%%%%%%%%%%%%ALGORITMOS%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -50,8 +50,8 @@ Dado un arreglo y una operación asociativa \emph{idempotente}, get(i, j) opera 
 \cppfile[21-43]{string/kmp.cpp}
 \subsection{Trie}
 \cppfile{string/trie.cpp}
-\subsection{Suffix Array (corto, nlog2n)}
-\cppfile[12-26]{string/suffix.array.short.cpp}
+%\subsection{Suffix Array (corto, nlog2n)}
+%\cppfile[12-26]{string/suffix.array.short.cpp}
 \subsection{Suffix Array (largo, nlogn)}
 \cppfile[-34]{string/suffix.array.cpp}
 \subsection{String Matching With Suffix Array}
@@ -62,7 +62,7 @@ Dado un arreglo y una operación asociativa \emph{idempotente}, get(i, j) opera 
 \cppfile[9-51]{string/corasick.cpp}
 
 
-\section{Geometría}%%%%%%%%%%%%%%%%%%GEOMETRIA%%%%%%%%%%%%%%%%%%%%%%
+\section{Geometria}%%%%%%%%%%%%%%%%%%GEOMETRIA%%%%%%%%%%%%%%%%%%%%%%
 \#define EPS 1e-9
 \subsection{Punto}
 \cppfile{geometria/pto.cpp}
@@ -70,8 +70,8 @@ Dado un arreglo y una operación asociativa \emph{idempotente}, get(i, j) opera 
 \cppfile{geometria/line.cpp}
 \subsection{Segment}
 \cppfile{geometria/segm.cpp}
-\subsection{Rectangle}
-\cppfile{geometria/rect.cpp}
+%\subsection{Rectangle}
+%\cppfile{geometria/rect.cpp}
 \subsection{Polygon Area}
 \cppfile{geometria/area.cpp}
 \subsection{Circle}
@@ -86,8 +86,10 @@ Dado un arreglo y una operación asociativa \emph{idempotente}, get(i, j) opera 
 \cppfile{geometria/cut.polygon.cpp}
 \subsection{Bresenham}
 \cppfile{geometria/bresenham.cpp}
-\subsection{Rotate Matrix}
-\cppfile{geometria/rotate.cpp}
+%\subsection{Rotate Matrix}
+%\cppfile{geometria/rotate.cpp}
+\subsection{Interseccion de Circulos en n3log(n)}
+\cppfile{geometria/int.circs.cpp}
 
 
 \section{Math}%%%%%%%%%%%%%%%%%%MATH%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -163,14 +165,18 @@ tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \cppfile[21-55]{grafos/heavylight.cpp}
 \subsection{Euler Cycle}
 \cppfile{grafos/euler.cpp}
+\subsection{Chu-liu}
+\cppfile{grafos/chuliu.cpp}
+%\subsection{Hungarian}
+%\cppfile{grafos/hungarian.cpp}
 
 
 \section{Network Flow}%%%%%%%%%%%%%%%%%%FLOW%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dinic}
 \cppfile[10-76]{flow/dinic.cpp}
-\subsection{König}
+\subsection{Konig}
 \cppfile[98-122]{flow/konig.cpp}
-\subsection{Edmonds Karp’s}
+\subsection{Edmonds Karp's}
 \cppfile{flow/edmonds.karps.cpp}
 \subsection{Push-Relabel}
 \cppfile{flow/push.relabel.cpp}
@@ -179,10 +185,6 @@ tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 
 
 \section{Ayudamemoria}%%%%%%%%%%%%%%%%%%AYUDAMEMORIA%%%%%%%%%%%%%%%%
-\subsection*{Límites}
-\begin{code}
-#include <climits> //INT_MIN, LONG_MAX, ULLONG_MAX, etc.
-\end{code}
 \subsection*{Cant. decimales}
 \begin{code}
 #include <iomanip>
@@ -193,7 +195,7 @@ cout << setprecision(2) << fixed;
 #include <iomanip>
 cout << setfill(' ') << setw(3) << 2 << endl;
 \end{code}
-\subsection*{Leer hasta fin de línea}
+\subsection*{Leer hasta fin de linea}
 \begin{code}
 #include <sstream>
 //hacer cin.ignore() antes de getline()
@@ -216,7 +218,7 @@ x == y	<=> fabs(x-y) < EPS
 x >  y	<=> x > y + EPS
 x >= y	<=> x > y - EPS
 \end{code}
-\subsection*{Límites}
+\subsection*{Limites}
 \begin{code}
 #include <limits>
 numeric_limits<T>
@@ -252,6 +254,10 @@ inline void Scanf(int& a){
 \subsection*{Leer del teclado}
 \begin{code}
 freopen("/dev/tty", "a", stdin);
+\end{code}
+\subsection*{Iterar subconjunto}
+\begin{code}
+for(int sbm=bm; sbm; sbm=(sbm-1)&bm)
 \end{code}
 \subsection*{File setup}
 \begin{code}
