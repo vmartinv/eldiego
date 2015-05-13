@@ -94,17 +94,43 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 
 \section{Math}%%%%%%%%%%%%%%%%%%MATH%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Identidades}
-{\small
-$$\sum_{i=0}^n\binom{n}{i}=2^n$$
-$$\sum_{i=0}^n i\binom{n}{i}=n*2^{n-1}$$
-$$\sum_{i=m}^n i = \frac{n(n+1)}{2} - \frac{m(m-1)}{2} = \frac{(n+1-m)(n+m)}{2}$$
-$$\sum_{i=0}^n i = \sum_{i=1}^n i = \frac{n(n+1)}{2}$$
-$$\sum_{i=0}^n i^2 = \frac{n(n+1)(2n+1)}{6} = \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6}$$
-$$\sum_{i=0}^n i(i-1) = \frac{8}{6}(\frac{n}{2})(\frac{n}{2}+1)(n+1)$$ (doubles) $\rightarrow$ Sino ver caso impar y par
-$$\sum_{i=0}^n i^3 = \left(\frac{n(n+1)}{2}\right)^2 = \frac{n^4}{4} + \frac{n^3}{2} + \frac{n^2}{4} = \left[\sum_{i=1}^n i\right]^2$$
-$$\sum_{i=0}^n i^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30} = \frac{n^5}{5} + \frac{n^4}{2} + \frac{n^3}{3} - \frac{n}{30}$$
-$$\sum_{i=0}^n i^p = \frac{(n+1)^{p+1}}{p+1} + \sum_{k=1}^p\frac{B_k}{p-k+1}{p\choose k}(n+1)^{p-k+1}$$
+{
+$\sum_{i=0}^n\binom{n}{i}=2^n$
+
+$\sum_{i=0}^n i\binom{n}{i}=n*2^{n-1}$
+
+$\sum_{i=m}^n i = \frac{n(n+1)}{2} - \frac{m(m-1)}{2} = \frac{(n+1-m)(n+m)}{2}$
+
+$\sum_{i=0}^n i = \sum_{i=1}^n i = \frac{n(n+1)}{2}$
+
+$\sum_{i=0}^n i^2 = \frac{n(n+1)(2n+1)}{6} = \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6}$
+
+$\sum_{i=0}^n i(i-1) = \frac{8}{6}(\frac{n}{2})(\frac{n}{2}+1)(n+1)$ (doubles) $\rightarrow$ Sino ver caso impar y par
+
+$\sum_{i=0}^n i^3 = \left(\frac{n(n+1)}{2}\right)^2 = \frac{n^4}{4} + \frac{n^3}{2} + \frac{n^2}{4} = \left[\sum_{i=1}^n i\right]^2$
+
+$\sum_{i=0}^n i^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30} = \frac{n^5}{5} + \frac{n^4}{2} + \frac{n^3}{3} - \frac{n}{30}$
+
+$\sum_{i=0}^n i^p = \frac{(n+1)^{p+1}}{p+1} + \sum_{k=1}^p\frac{B_k}{p-k+1}{p\choose k}(n+1)^{p-k+1}$
+
+$r=e-v+k+1$
+
+Teorema de Pick: (Area, puntos interiores y puntos en el borde)
+
+$A=I+\frac{B}{2}-1$
+
+
 }%
+\subsection{Ec. Caracteristica}
+$a_0T(n)+a_1T(n-1)+...+a_kT(n-k)=0$
+
+$p(x)=a_0 x^k + a_1 x^{k-1} + ... + a_k$
+
+Sean $r_1,r_2,...,r_q$ las raíces distintas, de mult. $m_1, m_2, ..., m_q$
+
+$T(n)=\sum_{i=1}^q{\sum_{j=0}^{m_i - 1}c_{ij} n^j r_i^n}$
+
+Las constantes $c_{ij}$ se determinan por los casos base.
 \subsection{Combinatorio}
 \cppfile{math/combinatorio.cpp}
 \subsection{Exp. de Numeros Mod.}
