@@ -31,6 +31,7 @@ pto rotate(pto p, double theta){
      p.x*sin(theta)+p.y*cos(theta));
 }
 
+//orden total de puntos alrededor de un punto r
 struct Cmp{
 	pto r;
 	Cmp(pto _r){r = _r;}
