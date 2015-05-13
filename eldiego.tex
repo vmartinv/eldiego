@@ -124,6 +124,8 @@ Sea $n=\prod{p_i^{k_i}}$, fact(n) genera un map donde a cada $p_i$ le asocia su 
 \begin{code}
 tipo gcd(tipo a, tipo b){return a?gcd(b %a, a):b;}
 \end{code}
+\subsection{Extended Euclid}
+\cppfile{math/extended.euclid.cpp}
 \subsection{LCM}
 \begin{code}
 tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
@@ -159,6 +161,8 @@ tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \cppfile{grafos/lca.climb.cpp}
 \subsection{Heavy Light Decomposition}
 \cppfile[21-55]{grafos/heavylight.cpp}
+\subsection{Euler Cycle}
+\cppfile{grafos/euler.cpp}
 
 
 \section{Network Flow}%%%%%%%%%%%%%%%%%%FLOW%%%%%%%%%%%%%%%%%%%%%%%%%%%%
