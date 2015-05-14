@@ -2,7 +2,6 @@
 using namespace std;
 
 typedef int Key;
-
 typedef struct node *pnode;
 struct node{
     Key key;

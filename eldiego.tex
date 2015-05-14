@@ -6,7 +6,7 @@
 \begin{document}
 \def\title{Caloventor en Dos - Universidad Nacional de Rosario}
 %\centering{\includegraphics[width=3.5cm]{fotodiego}}
-\tableofcontents\newpage
+%\tableofcontents\newpage
  
 \section{algorithm}%%%%%%%%%%%%%%%%%%ALGORITHM%%%%%%%%%%%%%%%%%%
 \input{algorithm.tex}
@@ -16,16 +16,18 @@
 \subsection{RMQ (static)}
 Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera sobre el rango [i, j). Restriccion: LVL $\ge$ ceil(logn); Usar [ ] para llenar arreglo y luego build().
 \cppfile{estructuras/rmq.static.cpp}
-\subsection{RMQ (dynamic)}
-\cppfile{estructuras/rmq.dynamic.cpp}
-\subsection{RMQ (lazy)}
-\cppfile{estructuras/rmq.lazy.cpp}
+%\subsection{RMQ (dynamic)}
+%\cppfile{estructuras/rmq.dynamic.cpp}
+%\subsection{RMQ (lazy)}
+%\cppfile{estructuras/rmq.lazy.cpp}
+\subsection{RMQ (dynamic and lazy)}
+\cppfile{estructuras/rmq.mixed.cpp}
 \subsection{Fenwick Tree}
 \cppfile{estructuras/fenwick.cpp}
 \subsection{Union Find}
 \cppfile{estructuras/union.find.cpp}
-\subsection{Disjoint Intervals}
-\cppfile{estructuras/disjoint.intervals.cpp}
+%\subsection{Disjoint Intervals}
+%\cppfile{estructuras/disjoint.intervals.cpp}
 \subsection{RMQ (2D)}
 \cppfile{estructuras/rmq.2d.cpp}
 \subsection{Big Int}
@@ -43,6 +45,8 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile[14-42]{algos/lis.cpp}
 \subsection{Manacher}
 \cppfile[18-37]{algos/manacher.cpp}
+\subsection{Alpha-Beta prunning}
+\cppfile{algos/alphabeta.cpp}
 
 
 \section{Strings}%%%%%%%%%%%%%%%%%%STRINGS%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -56,14 +60,13 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile[-34]{string/suffix.array.cpp}
 \subsection{String Matching With Suffix Array}
 \cppfile[37-58]{string/suffix.array.cpp}
-\subsection{LCP (Longest Common Prefix)}
+%\subsection{LCP (Longest Common Prefix)}
 \cppfile[60-75]{string/suffix.array.cpp}
 \subsection{Corasick}
 \cppfile[9-51]{string/corasick.cpp}
 
 
 \section{Geometria}%%%%%%%%%%%%%%%%%%GEOMETRIA%%%%%%%%%%%%%%%%%%%%%%
-\#define EPS 1e-9
 \subsection{Punto}
 \cppfile{geometria/pto.cpp}
 \subsection{Line}
@@ -126,7 +129,7 @@ $a_0T(n)+a_1T(n-1)+...+a_kT(n-k)=0$
 
 $p(x)=a_0 x^k + a_1 x^{k-1} + ... + a_k$
 
-Sean $r_1,r_2,...,r_q$ las raíces distintas, de mult. $m_1, m_2, ..., m_q$
+Sean $r_1,r_2,...,r_q$ las raÃ­ces distintas, de mult. $m_1, m_2, ..., m_q$
 
 $T(n)=\sum_{i=1}^q{\sum_{j=0}^{m_i - 1}c_{ij} n^j r_i^n}$
 
@@ -166,6 +169,8 @@ tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \cppfile{math/frac.cpp}
 \subsection{Polinomio}
 \cppfile[22-96]{math/polinomio.cpp}
+\subsection{Ec. Lineales}
+\cppfile[29-62]{math/eclineales.cpp}
 
 
 \section{Grafos}%%%%%%%%%%%%%%%%%%GRAFOS%%%%%%%%%%%%%%%%%%%%%%%%%%%%

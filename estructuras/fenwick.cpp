@@ -21,5 +21,4 @@ struct Fenwick{
 	   		mask >>= 1;
 	  	}
 	  	return idx;
-	}
-};
+	}};

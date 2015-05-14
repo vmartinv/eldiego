@@ -10,5 +10,4 @@ ll alphabeta(State &s, bool player = true, int depth = 1e9, ll alpha = -INF, ll 
         else beta = min(beta, v);
         if(beta <= alpha) break;
     }
-    return !player ? alpha : beta;
-}
+    return !player ? alpha : beta;}

@@ -10,5 +10,4 @@ struct RMQ{
 		int mp = 31-__builtin_clz(n);
 		forn(p, mp) forn(x, n-(1<<p))
 			vec[p+1][x] = min(vec[p][x], vec[p][x+(1<<p)]);
-	}
-};
+	}};

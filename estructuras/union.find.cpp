@@ -6,5 +6,4 @@ struct UnionFind{
 		bool con=comp(i)==comp(j);
 		if(!con) f[comp(i)] = comp(j);
 		return con;
-	}
-};
+	}};
