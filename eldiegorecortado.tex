@@ -1,0 +1,276 @@
+% LaTeXar con :
+%  pdflatex eldiego.tex
+%"The PDF file may contain up to 25 pages of reference material, single-sided, letter or A4 size, with text and illustrations readable by a person with correctable eyesight without magnification from a distance of 1/2 meter."
+\input{preamble.tex}
+\usepackage{amsmath}
+\begin{document}
+\def\title{Caloventor en Dos - Universidad Nacional de Rosario}
+%\centering{\includegraphics[width=3.5cm]{fotodiego}}
+%\tableofcontents\newpage
+ 
+\section{algorithm}%%%%%%%%%%%%%%%%%%ALGORITHM%%%%%%%%%%%%%%%%%%
+\input{algorithm.tex}
+
+
+\section{Estructuras}%%%%%%%%%%%%%%%%%%ESTRUCTURAS%%%%%%%%%%%%%%%%%%
+\subsection{RMQ (static)}
+Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera sobre el rango [i, j). Restriccion: LVL $\ge$ ceil(logn); Usar [ ] para llenar arreglo y luego build().
+\cppfile{estructuras/rmq.static.cpp}
+%\subsection{RMQ (dynamic)}
+%\cppfile{estructuras/rmq.dynamic.cpp}
+%\subsection{RMQ (lazy)}
+%\cppfile{estructuras/rmq.lazy.cpp}
+\subsection{RMQ (dynamic and lazy)}
+\cppfile{estructuras/rmq.mixed.cpp}
+\subsection{Fenwick Tree}
+\cppfile{estructuras/fenwick.cpp}
+\subsection{Union Find}
+\cppfile{estructuras/union.find.cpp}
+%\subsection{Disjoint Intervals}
+%\cppfile{estructuras/disjoint.intervals.cpp}
+\subsection{RMQ (2D)}
+\cppfile{estructuras/rmq.2d.cpp}
+\subsection{Big Int}
+\cppfile{estructuras/bigint.cpp}
+\subsection{Modnum}
+\cppfile{estructuras/mnum.cpp}
+\subsection{Treap}
+\cppfile[4-99]{estructuras/treap.cpp}
+%\subsection{Gain-Cost Set}
+%\cppfile[20-43]{estructuras/gain-cost.set.cpp}
+
+
+\section{Algos}%%%%%%%%%%%%%%%%%%ALGORITMOS%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Longest Increasing Subsecuence}
+\cppfile[14-42]{algos/lis.cpp}
+\subsection{Manacher}
+\cppfile[18-37]{algos/manacher.cpp}
+\subsection{Alpha-Beta prunning}
+\cppfile{algos/alphabeta.cpp}
+
+
+\section{Strings}%%%%%%%%%%%%%%%%%%STRINGS%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{KMP}
+\cppfile[21-43]{string/kmp.cpp}
+\subsection{Trie}
+\cppfile{string/trie.cpp}
+%\subsection{Suffix Array (corto, nlog2n)}
+%\cppfile[12-26]{string/suffix.array.short.cpp}
+\subsection{Suffix Array (largo, nlogn)}
+\cppfile[-34]{string/suffix.array.cpp}
+\subsection{String Matching With Suffix Array}
+\cppfile[37-58]{string/suffix.array.cpp}
+%\subsection{LCP (Longest Common Prefix)}
+\cppfile[60-75]{string/suffix.array.cpp}
+\subsection{Corasick}
+\cppfile[9-51]{string/corasick.cpp}
+
+
+\section{Geometria}%%%%%%%%%%%%%%%%%%GEOMETRIA%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Punto}
+\cppfile{geometria/pto.cpp}
+\subsection{Line}
+\cppfile{geometria/line.cpp}
+\subsection{Segment}
+\cppfile{geometria/segm.cpp}
+%\subsection{Rectangle}
+%\cppfile{geometria/rect.cpp}
+\subsection{Polygon Area}
+\cppfile{geometria/area.cpp}
+\subsection{Circle}
+\cppfile{geometria/circle.cpp}
+\subsection{Point in Poly}
+\cppfile{geometria/point.in.poly.cpp}
+\subsection{Convex Check CHECK}
+\cppfile{geometria/convex.check.cpp}
+\subsection{Convex Hull}
+\cppfile{geometria/convex.hull.cpp}
+\subsection{Cut Polygon}
+\cppfile{geometria/cut.polygon.cpp}
+\subsection{Bresenham}
+\cppfile{geometria/bresenham.cpp}
+%\subsection{Rotate Matrix}
+%\cppfile{geometria/rotate.cpp}
+\subsection{Interseccion de Circulos en n3log(n)}
+\cppfile{geometria/int.circs.cpp}
+
+
+\section{Math}%%%%%%%%%%%%%%%%%%MATH%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Identidades}
+{
+$\sum_{i=0}^n\binom{n}{i}=2^n$
+
+$\sum_{i=0}^n i\binom{n}{i}=n*2^{n-1}$
+
+$\sum_{i=m}^n i = \frac{n(n+1)}{2} - \frac{m(m-1)}{2} = \frac{(n+1-m)(n+m)}{2}$
+
+$\sum_{i=0}^n i = \sum_{i=1}^n i = \frac{n(n+1)}{2}$
+
+$\sum_{i=0}^n i^2 = \frac{n(n+1)(2n+1)}{6} = \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6}$
+
+$\sum_{i=0}^n i(i-1) = \frac{8}{6}(\frac{n}{2})(\frac{n}{2}+1)(n+1)$ (doubles) $\rightarrow$ Sino ver caso impar y par
+
+$\sum_{i=0}^n i^3 = \left(\frac{n(n+1)}{2}\right)^2 = \frac{n^4}{4} + \frac{n^3}{2} + \frac{n^2}{4} = \left[\sum_{i=1}^n i\right]^2$
+
+$\sum_{i=0}^n i^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30} = \frac{n^5}{5} + \frac{n^4}{2} + \frac{n^3}{3} - \frac{n}{30}$
+
+$\sum_{i=0}^n i^p = \frac{(n+1)^{p+1}}{p+1} + \sum_{k=1}^p\frac{B_k}{p-k+1}{p\choose k}(n+1)^{p-k+1}$
+
+$r=e-v+k+1$
+
+Teorema de Pick: (Area, puntos interiores y puntos en el borde)
+
+$A=I+\frac{B}{2}-1$
+
+
+}%
+\subsection{Ec. Caracteristica}
+$a_0T(n)+a_1T(n-1)+...+a_kT(n-k)=0$
+
+$p(x)=a_0 x^k + a_1 x^{k-1} + ... + a_k$
+
+Sean $r_1,r_2,...,r_q$ las raíces distintas, de mult. $m_1, m_2, ..., m_q$
+
+$T(n)=\sum_{i=1}^q{\sum_{j=0}^{m_i - 1}c_{ij} n^j r_i^n}$
+
+Las constantes $c_{ij}$ se determinan por los casos base.
+\subsection{Combinatorio}
+\cppfile{math/combinatorio.cpp}
+\subsection{Exp. de Numeros Mod.}
+\cppfile[2]{math/exp.mod.cpp}
+\subsection{Exp. de Matrices y Fibonacci en log(n)}
+\cppfile{math/exp.mat.cpp}
+\subsection{Teorema Chino del Resto}
+$$y=\sum_{j=1}^n (x_j*(\prod_{i=1, i\neq j}^n m_i)_{m_j}^{-1}*\prod_{i=1, i\neq j}^n m_i)$$
+\subsection{Funciones de primos}
+\cppfile[46-100]{math/func.primos.cpp}
+\subsection{Phollard's Rho (rolando)}
+\cppfile[23-107]{math/phollards.rho.cpp}
+\subsection{Criba}
+\cppfile[20-31]{math/criba.cpp}
+\subsection{Factorizacion}
+Sea $n=\prod{p_i^{k_i}}$, fact(n) genera un map donde a cada $p_i$ le asocia su $k_i$
+\cppfile[33-55]{math/factorizacion.cpp}
+\subsection{GCD}
+\begin{code}
+tipo gcd(tipo a, tipo b){return a?gcd(b %a, a):b;}
+\end{code}
+\subsection{Extended Euclid}
+\cppfile{math/extended.euclid.cpp}
+\subsection{LCM}
+\begin{code}
+tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
+\end{code}
+\subsection{Inversos}
+\cppfile[7-16]{math/inversos.cpp}
+\subsection{Simpson}
+\cppfile{math/simpson.cpp}
+\subsection{Fraction}
+\cppfile{math/frac.cpp}
+\subsection{Polinomio}
+\cppfile[47-76]{math/polinomio.cpp}
+\subsection{Ec. Lineales}
+\cppfile[29-62]{math/eclineales.cpp}
+
+
+\section{Grafos}%%%%%%%%%%%%%%%%%%GRAFOS%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dijkstra}
+\cppfile{grafos/dijkstra.cpp}
+\subsection{Bellman-Ford}
+\cppfile{grafos/bellman.ford.cpp}
+\subsection{Floyd-Warshall}
+\cppfile{grafos/floyd.warshall.cpp}
+\subsection{Kruskal}
+\cppfile[27-41]{grafos/kruskal.cpp}
+\subsection{Prim}
+\cppfile[23-40]{grafos/prim.cpp}
+\subsection{2-SAT + Tarjan SCC}
+\cppfile{grafos/2sat.cpp}
+\subsection{Articulation Points}
+\cppfile{grafos/articulaciones.cpp}
+\subsection{Comp. Biconexas y Puentas}
+\cppfile[28-76]{grafos/biconexas.bridge.cpp}
+\subsection{LCA + Climb}
+\cppfile{grafos/lca.climb.cpp}
+\subsection{Heavy Light Decomposition}
+\cppfile[21-55]{grafos/heavylight.cpp}
+\subsection{Euler Cycle}
+\cppfile{grafos/euler.cpp}
+\subsection{Chu-liu}
+\cppfile{grafos/chuliu.cpp}
+\subsection{Hungarian}
+\cppfile{grafos/hungarian.cpp}
+
+
+\section{Network Flow}%%%%%%%%%%%%%%%%%%FLOW%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dinic}
+\cppfile[10-76]{flow/dinic.cpp}
+\subsection{Konig}
+\cppfile[98-122]{flow/konig.cpp}
+\subsection{Edmonds Karp's}
+\cppfile{flow/edmonds.karps.cpp}
+\subsection{Push-Relabel}
+\cppfile{flow/push.relabel.cpp}
+\subsection{Min-cost Max-flow}
+\cppfile[25-74]{flow/min.cost.max.flow.cpp}
+
+
+\section{Ayudamemoria}%%%%%%%%%%%%%%%%%%AYUDAMEMORIA%%%%%%%%%%%%%%%%
+\subsection*{Leer hasta fin de linea}
+\begin{code}
+#include <sstream>
+//hacer cin.ignore() antes de getline()
+while(getline(cin, line)){
+   	 istringstream is(line);
+   	 while(is >> X)
+   		 cout << X << " ";
+   	 cout << endl;
+}
+\end{code}
+\subsection*{Doubles Comp.}
+\begin{code}
+const double EPS = 1e-9;
+x == y	<=> fabs(x-y) < EPS
+x >  y	<=> x > y + EPS
+x >= y	<=> x > y - EPS
+\end{code}
+\subsection*{Limites}
+\begin{code}
+#include <limits>
+numeric_limits<T>::max() ::min() ::epsilon()
+\end{code}
+\subsection*{Muahaha}
+\begin{code}
+#include <signal.h>
+void divzero(int p){
+	while(true);}
+void segm(int p){
+	exit(0);}
+//in main
+signal(SIGFPE, divzero);
+signal(SIGSEGV, segm);
+\end{code}
+\subsection*{Mejorar velocidad}
+\begin{code}
+ios::sync_with_stdio(0);
+\end{code}
+\subsection*{Mejorar velocidad 2}
+\begin{code}
+//Solo para enteros positivos
+inline void Scanf(int& a){
+	char c = 0;
+	while(c<33) c = getc(stdin);
+	a = 0;
+	while(c>33)	a = a*10 + c - '0', c = getc(stdin);
+}
+\end{code}
+\subsection*{Leer del teclado}
+\begin{code}
+freopen("/dev/tty", "a", stdin);
+\end{code}
+\subsection*{File setup}
+\begin{code}
+//tambien se pueden usar comas: {a, x, m, l}
+touch {a..l}.in; tee {a..l}.cpp < template.cpp
+\end{code}
+\end{document}

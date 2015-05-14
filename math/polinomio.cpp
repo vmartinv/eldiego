@@ -44,6 +44,7 @@ struct poly {
 		forall(it, c) sum=sum*v + *it;
 		return sum;
 	}
+    //poly contains only a vector<int> c (the coeficients)
 	//the following function generates the roots of the polynomial
 //it can be easily modified to return float roots
 	set<tipo> roots(){
