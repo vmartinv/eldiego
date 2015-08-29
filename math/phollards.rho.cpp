@@ -12,12 +12,6 @@ using namespace std;
 #define forn(i,n) forr(i,0,n)
 typedef long long ll;
 
-ll expmod (ll b, ll e, ll m){//O(log b)
-	if(!e) return 1;
-	ll q= expmod(b,e/2,m); q=(q*q)%m;
-	return e%2? (b * q)%m : q;
-}
-
 ll gcd(ll a, ll b){return a?gcd(b %a, a):b;}
 
 ll mulmod (ll a, ll b, ll c) { //returns (a*b)%c, and minimize overfloor
@@ -28,6 +22,12 @@ ll mulmod (ll a, ll b, ll c) { //returns (a*b)%c, and minimize overfloor
 		b /= 2;
 	}
 	return x % c;
+}
+
+ll expmod (ll b, ll e, ll m){//O(log b)
+	if(!e) return 1;
+	ll q= expmod(b,e/2,m); q=mulmod(q, 2, m);
+	return e%2? mulmod(b, q, m) : q;
 }
 
 bool es_primo_prob (ll n, int a)
