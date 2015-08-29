@@ -40,7 +40,7 @@ bool es_primo_prob (ll n, int a)
 	if ((x == 1) || (x+1 == n)) return true;
 	
 	forn (i, s-1){
-		x = (x*x)%n;
+		x = mulmod(x, x, n);
 		if (x == 1) return false;
 		if (x+1 == n) return true;
 	}
