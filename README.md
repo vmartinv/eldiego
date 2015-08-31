@@ -1,9 +1,11 @@
 El Diego
 =======
 
-Notebook del equipo caloventorEnDos. Contamos con el apoyo de Gabina.
+Notebook del equipo Caloventor en Dos. Gabina Rlz.
 
-Estado
+Colores para el Geany!
 ------------
+curl -O labdcc.fceia.unr.edu.ar/~mvillagra/geany.colors.tar.gz  && tar -zxf geany.colors.tar.gz -C ~/.config/geany/colorschemes/
 
-Algo decente hay por lo menos.
+En el Geany: View -> Change Color scheme...
+
