@@ -4,6 +4,7 @@
 #include <cstring>
 #include <vector>
 #include <cassert>
+#include <map>
 #include <algorithm>
 #include <cmath>
 using namespace std;
@@ -26,8 +27,8 @@ ll mulmod (ll a, ll b, ll c) { //returns (a*b)%c, and minimize overfloor
 
 ll expmod (ll b, ll e, ll m){//O(log b)
 	if(!e) return 1;
-	ll q= expmod(b,e/2,m); q=mulmod(q, 2, m);
-	return e%2? mulmod(b, q, m) : q;
+	ll q= expmod(b,e/2,m); q=mulmod(q,q,m);
+	return e%2? mulmod(b,q,m) : q;
 }
 
 bool es_primo_prob (ll n, int a)
@@ -47,7 +48,7 @@ bool es_primo_prob (ll n, int a)
 	return false;
 }
 		
-bool miller_rabin (ll n){ //devuelve true si n es primo
+bool rabin (ll n){ //devuelve true si n es primo
 	if (n == 1)	return false;
 	const int ar[] = {2,3,5,7,11,13,17,19,23};
 	forn (j,9)
@@ -56,54 +57,30 @@ bool miller_rabin (ll n){ //devuelve true si n es primo
 	return true;
 }
 
-ll pollard_rho (ll n, ll c=1){
-	int i = 0, k = 2;
-	ll x = 3, y = 3;
-	if(c>=n) return -1;//FAILURE
-	//~ if(c!=1) dprint(c);
-	while (1){
-		i++;
-		x = (mulmod (x,x,n) + c) % n;
-		ll d = gcd (abs(y-x), n);
-		if(d==n) return pollard_rho(n, c+1);
-		if (d != 1) return d;
-		if (i == k) y = x, k*=2;
-	}
+ll rho(ll n){
+    if( (n & 1) == 0 ) return 2;
+    ll x = 2 , y = 2 , d = 1;
+    ll c = rand() % n + 1;
+    while( d == 1 ){
+        x = (mulmod( x , x , n ) + c)%n;
+        y = (mulmod( y , y , n ) + c)%n;
+        y = (mulmod( y , y , n ) + c)%n;
+        if( x - y >= 0 ) d = gcd( x - y , n );
+        else d = gcd( y - x , n );
+    }
+    return d;
 }
 
-ll brent(ll n){
-		srand(time(NULL));
-        if (n%2 == 0)
-                return 2;
-        ll y = rand()%(n-1)+1, c = rand()%(n-1)+1, m = rand()%(n-1)+1;
-        ll g,r,q,x,k,ys;
-        g = r = q = 1;
-        while (g==1){             
-                x = y;
-                forn (i,r)
-                     y = ((y*y)%n+c)%n;
-                k = 0;
-                while (k<r && g==1){
-                        ys = y;
-                        forn (i,min(m,r-k)){
-                                y = ((y*y)%n+c)%n;
-                                q = q*(x-y)%n;
-							}
-                        g = gcd(q,n);
-                        k = k + m;
-					}
-                r = r*2;
-			}
-        if (g==n){
-                while (true){
-                        ys = ((ys*ys)%n+c)%n;
-                        g = gcd(abs(x-ys),n);
-                        if (g>1)
-                              break;
-					}
-				}
-			
-        return g;   
+map<ll,ll> prim; 
+void fact2 (ll n){ //Factoriza con rho
+	if (n == 1) return;
+	if (rabin(n)){
+		prim[n]++;
+		return;
+	}
+	ll ans = rho(n);
+	fact2(ans);
+	fact2(n/ans);
 }
 
 int main(){
@@ -111,19 +88,20 @@ int main(){
 	srand(time(NULL));
 	while(1){
 		n=rand()%(ll(1e18))+50;
-		//~ dprint(n);
-		if(!miller_rabin(n)){
+		dprint(n);
+		if(!rabin(n)){
 			//~ dprint(n);
-			ll ans = pollard_rho (n);
+			ll ans = rho (n);
 			assert(!(n%ans) && ans>0);
 		}
 	}
 	n = 2063512844981574047LL;
 	while(cin >> n){
-		if(miller_rabin (n))
+		dprint(n);
+		if(rabin (n))
 			cout << n << " es primo.\n";
 		else{
-			ll ans = pollard_rho (n);
+			ll ans = rho (n);
 			if (ans > n / ans) ans = n / ans;
 			printf ("%lld = %lld * %lld\n", n, ans, n / ans);
 		}
