@@ -85,9 +85,8 @@ void fact2 (ll n){ //Factoriza con rho
 
 int main(){
 	ll n;
-	srand(time(NULL));
 	while(1){
-		n=rand()%(ll(1e18))+50;
+		n=abs((ll)rand()*rand()*rand()%(ll(1e18))+50);
 		dprint(n);
 		if(!rabin(n)){
 			//~ dprint(n);
