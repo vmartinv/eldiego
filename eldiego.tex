@@ -16,18 +16,18 @@
 \subsection{RMQ (static)}
 Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera sobre el rango [i, j). Restriccion: LVL $\ge$ ceil(logn); Usar [ ] para llenar arreglo y luego build().
 \cppfile{estructuras/rmq.static.cpp}
-%\subsection{RMQ (dynamic)}
-%\cppfile{estructuras/rmq.dynamic.cpp}
-%\subsection{RMQ (lazy)}
-%\cppfile{estructuras/rmq.lazy.cpp}
-\subsection{RMQ (dynamic and lazy)}
-\cppfile{estructuras/rmq.mixed.cpp}
+\subsection{RMQ (dynamic)}
+\cppfile{estructuras/rmq.dynamic.cpp}
+\subsection{RMQ (lazy)}
+\cppfile{estructuras/rmq.lazy.cpp}
+\subsection{RMQ (persistente)}
+\cppfile[23-53]{estructuras/rmq.persistent.cpp}
 \subsection{Fenwick Tree}
 \cppfile{estructuras/fenwick.cpp}
 \subsection{Union Find}
 \cppfile{estructuras/union.find.cpp}
-%\subsection{Disjoint Intervals}
-%\cppfile{estructuras/disjoint.intervals.cpp}
+\subsection{Disjoint Intervals}
+\cppfile{estructuras/disjoint.intervals.cpp}
 \subsection{RMQ (2D)}
 \cppfile{estructuras/rmq.2d.cpp}
 \subsection{Big Int}
@@ -36,8 +36,10 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile{estructuras/mnum.cpp}
 \subsection{Treap}
 \cppfile[4-99]{estructuras/treap.cpp}
-%\subsection{Gain-Cost Set}
-%\cppfile[20-43]{estructuras/gain-cost.set.cpp}
++\subsection{Convex Hull Trick}
++\cppfile[27-66]{estructuras/convexhull.trick.cpp}
+\subsection{Gain-Cost Set}
+\cppfile[20-43]{estructuras/gain-cost.set.cpp}
 
 
 \section{Algos}%%%%%%%%%%%%%%%%%%ALGORITMOS%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -60,7 +62,7 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile[-34]{string/suffix.array.cpp}
 \subsection{String Matching With Suffix Array}
 \cppfile[37-58]{string/suffix.array.cpp}
-%\subsection{LCP (Longest Common Prefix)}
+\subsection{LCP (Longest Common Prefix)}
 \cppfile[60-75]{string/suffix.array.cpp}
 \subsection{Corasick}
 \cppfile[9-51]{string/corasick.cpp}
@@ -73,8 +75,8 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile{geometria/line.cpp}
 \subsection{Segment}
 \cppfile{geometria/segm.cpp}
-%\subsection{Rectangle}
-%\cppfile{geometria/rect.cpp}
+\subsection{Rectangle}
+\cppfile{geometria/rect.cpp}
 \subsection{Polygon Area}
 \cppfile{geometria/area.cpp}
 \subsection{Circle}
@@ -89,8 +91,8 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile{geometria/cut.polygon.cpp}
 \subsection{Bresenham}
 \cppfile{geometria/bresenham.cpp}
-%\subsection{Rotate Matrix}
-%\cppfile{geometria/rotate.cpp}
+\subsection{Rotate Matrix}
+\cppfile{geometria/rotate.cpp}
 \subsection{Interseccion de Circulos en n3log(n)}
 \cppfile{geometria/int.circs.cpp}
 
@@ -145,12 +147,12 @@ $$y=\sum_{j=1}^n (x_j*(\prod_{i=1, i\neq j}^n m_i)_{m_j}^{-1}*\prod_{i=1, i\neq 
 \subsection{Funciones de primos}
 \cppfile[46-100]{math/func.primos.cpp}
 \subsection{Phollard's Rho (rolando)}
-\cppfile[23-107]{math/phollards.rho.cpp}
+\cppfile[16-72]{math/phollards.rho.cpp}
 \subsection{Criba}
-\cppfile[20-31]{math/criba.cpp}
+\cppfile[19-28]{math/criba.cpp}
 \subsection{Factorizacion}
 Sea $n=\prod{p_i^{k_i}}$, fact(n) genera un map donde a cada $p_i$ le asocia su $k_i$
-\cppfile[33-55]{math/factorizacion.cpp}
+\cppfile[39-86]{math/factorizacion.cpp}
 \subsection{GCD}
 \begin{code}
 tipo gcd(tipo a, tipo b){return a?gcd(b %a, a):b;}
@@ -168,7 +170,7 @@ tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \subsection{Fraction}
 \cppfile{math/frac.cpp}
 \subsection{Polinomio}
-\cppfile[22-96]{math/polinomio.cpp}
+\cppfile[22-97]{math/polinomio.cpp}
 \subsection{Ec. Lineales}
 \cppfile[29-62]{math/eclineales.cpp}
 
@@ -194,6 +196,8 @@ tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \cppfile{grafos/lca.climb.cpp}
 \subsection{Heavy Light Decomposition}
 \cppfile[21-55]{grafos/heavylight.cpp}
+\subsection{Centroid Decomposition}
+\cppfile[23-42]{grafos/centroid.cpp}
 \subsection{Euler Cycle}
 \cppfile{grafos/euler.cpp}
 \subsection{Chu-liu}
@@ -209,7 +213,7 @@ tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \cppfile[98-122]{flow/konig.cpp}
 \subsection{Edmonds Karp's}
 \cppfile{flow/edmonds.karps.cpp}
-\subsection{Push-Relabel}
+\subsection{Push-Relabel O(N3)}
 \cppfile{flow/push.relabel.cpp}
 \subsection{Min-cost Max-flow}
 \cppfile[25-74]{flow/min.cost.max.flow.cpp}
