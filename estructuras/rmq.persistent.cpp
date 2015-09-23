@@ -19,43 +19,48 @@ using namespace std;
 #define snd second
 typedef long long ll;
 typedef pair<int,int> ii;
-typedef int tipo;
-const int MAXNODE=16;
 
-const tipo NEUTRO=999;
+typedef int tipo;
+tipo oper(const tipo &a, const tipo &b){
+    return a+b;
+}
 struct node{
-	tipo v;
-	int l,r;
-	node(tipo v=NEUTRO, int l=-1, int r=-1):v(v), l(l), r(r) {}
-} nds[MAXNODE];
-int qn;
-int tset(int ni, int p, tipo v, int a, int b){
-	node n=(ni==-1?node():nds[ni]);
-	if(a+1 == b) return nds[qn]=node(v), qn++;
-	int m = (a+b)>>1;
-	if(p<m) n.l=tset(n.l, p, v, a, m);
-	else n.r=tset(n.r, p, v, m, b);
-	n.v=min(n.l==-1?NEUTRO:nds[n.l].v, n.r==-1?NEUTRO:nds[n.r].v);
-	return nds[qn]=n, qn++;
+	tipo v; node *l,*r;
+	node(tipo v):v(v), l(NULL), r(NULL) {}
+    node(node *l, node *r) : l(l), r(r){
+        if(!l) v=r->v;
+        else if(!r) v=l->v;
+        else v=oper(l->v, r->v);
+    }
+};
+node *build (tipo *a, int tl, int tr) {//modificar para que tome tipo a
+	if (tl+1==tr) return new node(a[tl]);
+	int tm=(tl + tr)>>1;
+	return new node(build(a, tl, tm), build(a, tm, tr));
 }
-tipo tget(int ni, int i, int j, int a, int b){
-	if(ni==-1) return NEUTRO;
-	node n=nds[ni];
-    if(i==a && j==b) return n.v;
-	int m=(a+b)/2;
-	if(m>=j) return tget(n.l, i, j, a, m);
-	else if(m<=i) return tget(n.r, i, j, m, b);
-	return min(tget(n.l, i, m, a, m), tget(n.r, m, j, m, b));
+node *update(int pos, int new_val, node *t, int tl, int tr){
+	if (tl+1==tr) return new node(new_val);
+	int tm=(tl+tr)>>1;
+	if(pos < tm) return new node(update(pos, new_val, t->l, tl, tm), t->r);
+	else return new node(t->l, update(pos, new_val, t->r, tm, tr));
 }
+tipo get(int l, int r, node *t, int tl, int tr){
+    if(l==tl && tr==r) return t->v;
+	int tm=(tl + tr)>>1;
+    if(r<=tm) return get(l, r, t->l, tl, tm);
+    else if(l>=tm) return get(l, r, t->r, tm, tr);
+	return oper(get(l, tm, t->l, tl, tm), get(tm, r, t->r, tm, tr));
+}
+
+int vv[10000];
+      
 int main() {
 	//~ freopen("in", "r", stdin);
 	int n=8, a,b; char c[10];
-	int root=0;
-	nds[root]=node();
-	qn=0;
+	node *root=build(vv, 0, n);
 	while(scanf("%s %d %d", c, &a, &b)>0){
-		if(tolower(c[0])=='s') root=tset(root, a, b, 0, n);
-		else printf("%d\n", tget(root, a, b, 0, n));
+		if(tolower(c[0])=='s') root=update(a, b, root, 0, n);
+		else printf("%d\n", get(a, b, root, 0, n));
 	}
 	return 0;
 }
