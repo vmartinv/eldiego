@@ -4,7 +4,7 @@ struct segm{
 	pto closest(pto p) {//use for dist to point
 	   double l2 = dist_sq(s, f);
 	   if(l2==0.) return s;
-	   double t =((p-s)*(f-s))/l2;
+	   double t =((p-s)*(f-s))/l2/l2;
 	   if (t<0.) return s;//not write if is a line
 	   else if(t>1.)return f;//not write if is a line
 	   return s+((f-s)*t);
