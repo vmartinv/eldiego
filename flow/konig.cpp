@@ -15,7 +15,7 @@ using namespace std;
 #define zero(v) memset(v, 0, sizeof(v))
 #define fst first
 #define snd second
-#define mkp make_pair
+
 #define pb push_back
 #define INF 1e9
 typedef long long ll;

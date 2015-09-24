@@ -14,7 +14,7 @@ using namespace std;
 #define dprint(a) cerr << #a << "=" << a << endl;
 #define pb push_back
 #define zero(v) memset(v, 0, sizeof(v))
-#define mkp make_pair
+
 typedef long long ll;
 
 
@@ -43,7 +43,7 @@ void flow(int s, int t) {
 		fill(dist, dist+n, INF); dist[s] = 0;
 		fill(pre, pre+n, -1); pre[s]=0;
 		fill(cap, cap+n, 0); cap[s] = INF;
-		priority_queue<pair<ll,int> > q; q.push(mkp(0,s));
+		priority_queue<pair<ll,int> > q; q.push(make_pair(0,s));
 		while (!q.empty()) {
 			pair<ll,int> top = q.top(); q.pop();
 			int u = top.second, d = -top.first;
@@ -56,7 +56,7 @@ void flow(int s, int t) {
 					dist[E.v] = dist[u] + c;
 					pre[E.v] = G[u][i];
 					cap[E.v] = min(cap[u], E.rem());
-					q.push(mkp(-dist[E.v], E.v));
+					q.push(make_pair(-dist[E.v], E.v));
 				}
 			}
 		}

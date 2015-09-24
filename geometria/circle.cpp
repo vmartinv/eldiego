@@ -17,7 +17,7 @@ struct Circle{
 		tipo h=sqrt(r*r-a*a);
 		pto m2=o+(m-o)*a/d;
 		vec per=perp(m-o)/d;
-		return mkp(m2-per*h, m2+per*h);
+		return make_pair(m2-per*h, m2+per*h);
 	}
 };
 //finds the center of the circle containing p1 and p2 with radius r

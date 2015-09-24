@@ -15,7 +15,7 @@ using namespace std;
 #define zero(v) memset(v, 0, sizeof(v))
 #define fst first
 #define snd second
-#define mkp make_pair
+
 #define pb push_back
 typedef long long ll;
 typedef pair<int,int> ii;
