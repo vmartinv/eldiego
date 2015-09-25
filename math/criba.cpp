@@ -41,8 +41,7 @@ void buscarprimos(){
 
 int main() {
 	freopen("primos", "w", stdout);
-	crearcriba();
-	for(int i=2;i<=MAXP;i++) if (!criba[i]) primos.push_back(i);
+	buscarprimos();
 	cout << '{';
 	bool first=true;
 	forall(it, primos){
