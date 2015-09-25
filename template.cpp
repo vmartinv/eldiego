@@ -1,11 +1,4 @@
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <cmath>
-#include <vector>
-#include <set>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 #define dprint(v) cerr << #v"=" << v << endl //;)
 #define forr(i,a,b) for(int i=(a); i<(b); i++)
@@ -22,6 +15,7 @@ typedef pair<int,int> ii;
 
 int main() {
 	freopen("input.in", "r", stdin);
+    ios::sync_with_stdio(0);
 	while(){
 		
 	}
