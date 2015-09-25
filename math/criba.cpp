@@ -36,7 +36,7 @@ void buscarprimos(){
 //~ Useful for bit trick: 
 //~ #define SET(i) ( criba[(i)>>5]|=1<<((i)&31) )
 //~ #define INDEX(i) ( (criba[i>>5]>>((i)&31))&1 )
-//~ unsigned int criba[(MAXP+31)/32];
+//~ unsigned int criba[MAXP/32+1];
 
 
 int main() {
