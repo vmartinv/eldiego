@@ -5,8 +5,8 @@
 \usepackage{amsmath}
 \begin{document}
 \def\title{Caloventor en Dos - Universidad Nacional de Rosario}
-%\centering{\includegraphics[width=3.5cm]{fotodiego}}
-%\tableofcontents\newpage
+\centering{\includegraphics[width=3.5cm]{fotodiego}}
+\tableofcontents\newpage
  
 \section{algorithm}%%%%%%%%%%%%%%%%%%ALGORITHM%%%%%%%%%%%%%%%%%%
 \input{algorithm.tex}
@@ -412,6 +412,14 @@ inline void Scanf(int& a){
 	a = 0;
 	while(c>33)	a = a*10 + c - '0', c = getc(stdin);
 }
+\end{code}
+\subsection*{Expandir pila}
+\begin{code}
+#include <sys/resource.h>
+rlimit rl;
+getrlimit(RLIMIT_STACK, &rl);
+rl.rlim_cur=1024L*1024L*256L;//256mb
+setrlimit(RLIMIT_STACK, &rl);
 \end{code}
 \subsection*{Leer del teclado}
 \begin{code}
