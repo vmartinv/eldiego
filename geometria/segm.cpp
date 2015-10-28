@@ -9,16 +9,12 @@ struct segm{
 	   else if(t>1.)return f;//not write if is a line
 	   return s+((f-s)*t);
 	}
-	bool inside(pto p){
-return ((s-p)^(f-p))==0 && min(s, f)<*this&&*this<max(s, f);}
+    bool inside(pto p){return abs(dist(s, p)+dist(p, f)-dist(s, f))<EPS;}
 };
 
-bool insidebox(pto a, pto b, pto p) {
-	return (a.x-p.x)*(p.x-b.x)>-EPS && (a.y-p.y)*(p.y-b.y)>-EPS;
-}
 pto inter(segm s1, segm s2){
 	pto r=inter(line(s1.s, s1.f), line(s2.s, s2.f));
-	if(insidebox(s1.s,s1.f,p) && insidebox(s2.s,s2.f,p))
-			return r;
+    if(s1.inside(r) && s2.inside(r))
+        return r;
 	return pto(INF, INF);
 }
