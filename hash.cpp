@@ -13,7 +13,7 @@ using namespace std;
 typedef long long ll;
 typedef pair<int,int> ii;
 
-//Compilar: g++ --std=c++1
+//Compilar: g++ --std=c++11
 struct Hash{
 	size_t operator()(const ii &a)const{
 		size_t s=hash<int>()(a.fst);
