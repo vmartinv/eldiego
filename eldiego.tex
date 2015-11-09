@@ -32,6 +32,8 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile{estructuras/rmq.2d.cpp}
 \subsection{Big Int}
 \cppfile{estructuras/bigint.cpp}
+\subsection{HashTables}
+\cppfile[16-30]{hash.cpp}
 \subsection{Modnum}
 \cppfile{estructuras/mnum.cpp}
 \subsection{Treap}
@@ -40,6 +42,8 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 +\cppfile[27-66]{estructuras/convexhull.trick.cpp}
 \subsection{Gain-Cost Set}
 \cppfile[20-43]{estructuras/gain-cost.set.cpp}
+\subsection{Set con busq binaria}
+\cppfile[17-26]{estructuras/order.tree.cpp}
 
 
 \section{Algos}%%%%%%%%%%%%%%%%%%ALGORITMOS%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,7 +74,7 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 
 \section{Geometria}%%%%%%%%%%%%%%%%%%GEOMETRIA%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Punto}
-\cppfile{geometria/pto.cpp}
+\cppfile[2-]{geometria/pto.cpp}
 \subsection{Line}
 \cppfile{geometria/line.cpp}
 \subsection{Segment}
@@ -142,6 +146,8 @@ Las constantes $c_{ij}$ se determinan por los casos base.
 \cppfile[2]{math/exp.mod.cpp}
 \subsection{Exp. de Matrices y Fibonacci en log(n)}
 \cppfile{math/exp.mat.cpp}
+\subsection{Matrices y determinante $O(n^3)$}
+\cppfile[17-77]{math/determinante.cpp}
 \subsection{Teorema Chino del Resto}
 $$y=\sum_{j=1}^n (x_j*(\prod_{i=1, i\neq j}^n m_i)_{m_j}^{-1}*\prod_{i=1, i\neq j}^n m_i)$$
 \subsection{Funciones de primos}
@@ -323,6 +329,8 @@ $\sigma_1(9896040)$ = 44323200 ; $\sigma_1(9959040)$ = 44553600 ; $\sigma_1(9979
 \cppfile[23-42]{grafos/centroid.cpp}
 \subsection{Euler Cycle}
 \cppfile{grafos/euler.cpp}
+\subsection{Diametro árbol}
+\cppfile[17-48]{grafos/diametro.cpp}
 \subsection{Chu-liu}
 \cppfile{grafos/chuliu.cpp}
 \subsection{Hungarian}
@@ -420,6 +428,10 @@ rlimit rl;
 getrlimit(RLIMIT_STACK, &rl);
 rl.rlim_cur=1024L*1024L*256L;//256mb
 setrlimit(RLIMIT_STACK, &rl);
+\end{code}
+\subsection*{C++11}
+\begin{code}
+g++ --std=c++1
 \end{code}
 \subsection*{Leer del teclado}
 \begin{code}
