@@ -1,8 +1,16 @@
+const int MAXN=100001;
+const int LOGN=20;
 //f[v][k] holds the 2^k father of v
 //L[v] holds the level of v
-int N, f[100001][20], L[100001];
+int N, f[MAXN][LOGN], L[MAXN];
+//call before build:
+void dfs(int v, int fa=-1, int lvl=0){//generate required data
+	f[v][0]=fa, L[v]=lvl;
+	forall(it, G[v])if(*it!=fa)
+		dfs(*it, v, lvl+1);
+}
 void build(){//f[i][0] must be filled previously, O(nlgn)
-	forn(k, 20-1) forn(i, N) f[i][k+1]=f[f[i][k]][k];}
+	forn(k, LOGN-1) forn(i, N) f[i][k+1]=f[f[i][k]][k];}
 	
 #define lg(x) (31-__builtin_clz(x))//=floor(log2(x))
 
@@ -22,3 +30,6 @@ int lca(int a, int b){//O(lgn)
 			a=f[a][i], b=f[b][i];
 	return f[a][0];
 }
+int dist(int a, int b) {//returns distance between nodes
+	return L[a]+L[b]-2*L[lca(a, b)];}
+	
