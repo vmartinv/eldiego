@@ -41,7 +41,7 @@ struct poly {
     }
 	tipo eval(tipo v) {
 		tipo sum = 0;
-		forall(it, c) sum=sum*v + *it;
+		dforn(i, sz(c)) sum=sum*v + c[i];
 		return sum;
 	}
     //poly contains only a vector<int> c (the coeficients)
