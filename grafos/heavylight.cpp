@@ -28,6 +28,7 @@ void dfs1(int v, int p=-1){//pre-dfs
 		treesz[v]+=treesz[*it];
 	}
 }
+//PONER Q EN 0  !!!!!
 int pos[MAXN], q;//pos[v]=posicion del nodo v en el recorrido de la dfs
 //Las cadenas aparecen continuas en el recorrido!
 int cantcad;
