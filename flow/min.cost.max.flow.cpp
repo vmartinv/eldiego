@@ -12,7 +12,6 @@ using namespace std;
 #define snd second
 
 typedef long long ll;
-ll parche = 0;
 
 const int MAXN=10000;
 const ll INF = 1e14;
