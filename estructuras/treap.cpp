@@ -87,10 +87,11 @@ struct treap {
         pnode t1,t2,t3;
         splitSize(root,pos1,t1,t2);
         splitSize(t2,pos2-pos1,t2,t3);
-        root=merge(t1, t2);
+        root=merge(t1, t3);
     }
     pnode findPos(pnode t, int pos) {
         if(!t) return 0;
+	if(pos == size(t->l)) return t;
         if(pos <= size(t->l)) return findPos(t->l, pos);
         return findPos(t->r, pos - 1 - size(t->l));
     }
