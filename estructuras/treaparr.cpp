@@ -77,7 +77,7 @@ struct arr {//para usar el treap como un arreglo
         ::split(t2,j-i,t2,t3);
         root=merge(t1, t3);
     }
-    void push_back(Value val) {insert(size(root), val);}
+    void push_back(Value val) {root=merge(root, new node(val));}
     Value &operator[](int pos){return at(root, pos)->val;}//ojito
     //parte el arreglo en dos con sz(l)==tam
     void split(int tam, arr &l, arr &r){::split(root, tam, l.root, r.root);}
