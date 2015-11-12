@@ -72,16 +72,17 @@ ll rho(ll n){
 }
 
 map<ll,ll> prim; 
-void fact2 (ll n){ //Factoriza con rho
+void factRho (ll n){ //O (lg n)^3. un solo numero
 	if (n == 1) return;
 	if (rabin(n)){
 		prim[n]++;
 		return;
 	}
-	ll ans = rho(n);
-	fact2(ans);
-	fact2(n/ans);
+	ll factor = rho(n);
+	factRho(factor);
+	factRho(n/factor);
 }
+
 
 int main(){
 	ll n;
