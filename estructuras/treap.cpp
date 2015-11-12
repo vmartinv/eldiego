@@ -12,7 +12,6 @@ using namespace std;
 #define snd second
 typedef long long ll;
 typedef pair<int,int> ii;
-typedef struct node *pnode;
 
 typedef int Key;
 typedef struct node *pnode;
