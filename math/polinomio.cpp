@@ -33,6 +33,11 @@ struct poly {
         forn(i, n) res[i] += o.c[i];
         return poly(res);
     }
+    poly operator*(const tipo cons) const {
+		vector<tipo> res(sz(c));
+        forn(i, sz(c)) res[i]=c[i]*cons;
+        return poly(res);
+    }
     poly operator*(const poly &o) const {
         int m = sz(c), n = sz(o.c);
         vector<tipo> res(m+n-1);
@@ -61,18 +66,28 @@ struct poly {
 		return roots;
 	}
 };
-poly interpolate(const vector<tipo> &x, const vector<tipo> &y) {
-    int n = sz(x);
-    poly p;
-    vector<tipo> aux(2);
-    forn(i, n) {
-       double a = y[i] - p.eval(x[i]);
-       forn(j, i) a /= x[i] - x[j];
-       poly add(vector<tipo>(1, a));
-       forn(j, i) aux[0]=-x[j], aux[1]=1, add = add*aux;
-       p = p + add;
-    }
-    return p;
+pair<poly,tipo> ruffini(const poly p, tipo r) {
+	int n = sz(p.c) - 1 ;
+	vector<tipo> b(n);
+	b[n-1] = p.c[n];
+	dforn(k,n-1) b[k] = p.c[k+1] + r*b[k+1];
+	tipo resto = p.c[0] + r*b[0];
+	poly result(b);
+	return make_pair<poly,tipo>(result,resto);
+}
+
+poly interpolate(const vector<tipo>& x,const vector<tipo>& y) {
+    poly A; A.c.pb(1);
+    forn(i,sz(x)) { poly aux; aux.c.pb(-x[i]); aux.c.pb(1);
+		A = A * aux;
+	}
+	poly S; S.c.pb(0);
+	forn(i,sz(x)) { poly Li;
+		Li = ruffini(A,x[i]).fst;
+		Li = Li * (1.0 / Li.eval(x[i])); // here put a multiple of the coefficients instead of 1.0 to avoid using double
+		S = S + Li * y[i];
+	}
+	return S;
 }
 //the following functions allows parsing an expression like
 //34+150+4*45
