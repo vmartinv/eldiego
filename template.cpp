@@ -13,10 +13,13 @@ using namespace std;
 typedef long long ll;
 typedef pair<int,int> ii;
 
+const int MAXN=100100;
+int n;
+
 int main() {
 	freopen("input.in", "r", stdin);
     ios::sync_with_stdio(0);
-	while(){
+	while(cin >> n){
 		
 	}
 	return 0;

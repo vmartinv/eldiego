@@ -1,0 +1,2 @@
+!#/bin/bash
+touch {a..l}.in; tee {a..l}.cpp < template.cpp
