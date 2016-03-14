@@ -13,37 +13,47 @@ using namespace std;
 typedef long long ll;
 typedef pair<int,int> ii;
 
-struct St {
-    int len;
-    St *link;
-    map<char,St*> next;
-    St(int len, St* link=NULL):len(len),link(link){}
+struct state {
+	int len, link;
+	map<char,int> next;
+	state() { }
 };
-struct SuA{
-    St *init, *last;
-    SuA(): init(new St(0)), last(init) {}
-    void extend(char c){
-        St *cur=new St(last->len+1, init), *p=last;
-        for(;p && !p->next.count(c); p=p->link) p->next[c]=cur;
-        if(p){
-            St *q=p->next[c];
-            if(p->len+1==q->len) cur->link=q;
-            else{
-                St *clone = new St(p->len+1, q->link);
-                clone->next = q->next;
-                for(;p && p->next.count(c) && p->next[c]==q; p=p->link)
-                    p->next[c] = clone;
-                q->link = cur->link = clone;
-            }
-        }
-        last = cur;
-    }
-}aut;
-
+const int MAXLEN = 10010;
+state st[MAXLEN*2];
+int sz, last;
+void sa_init() {
+	sz = last = 0;
+	st[0].len = 0;
+	st[0].link = -1;
+	++sz;
+}
+void sa_extend (char c) {
+	int cur = sz++;
+	st[cur].len = st[last].len + 1;
+	int p;
+	for (p=last; p!=-1 && !st[p].next.count(c); p=st[p].link)
+		st[p].next[c] = cur;
+	if (p == -1)
+		st[cur].link = 0;
+	else {
+		int q = st[p].next[c];
+		if (st[p].len + 1 == st[q].len)
+			st[cur].link = q;
+		else {
+			int clone = sz++;
+			st[clone].len = st[p].len + 1;
+			st[clone].next = st[q].next;
+			st[clone].link = st[q].link;
+			for (; p!=-1 && st[p].next.count(c) && st[p].next[c]==q; p=st[p].link)
+				st[p].next[c] = clone;
+			st[q].link = st[cur].link = clone;
+		}
+	}
+	last = cur;
+}
 
 int main() {
     string s; cin >> s;
-    aut=SuA();
-    forn(i, sz(s)) aut.extend(s[i]);	
+    forn(i, sz(s)) sa_extend(s[i]);	
 	return 0;
 }
