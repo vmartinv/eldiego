@@ -14,64 +14,50 @@ using namespace std;
 typedef long long ll;
 
 const int MAXN=10000;
-const ll INF = 1e14;
-
+typedef ll tf;
+typedef ll tc;
+const tf INFFLUJO = 1e14;
+const tc INFCOSTO = 1e14;
 struct edge {
 	int u, v;
-	ll cap, cost, flow;
-	ll rem() { return cap - flow; }
+	tf cap, flow;
+	tc cost;
+	tf rem() { return cap - flow; }
 };
-int nodes;//numero de nodos
-vector<int> G[MAXN];
-vector<edge> e;
-void addEdge(int u, int v, ll cap, ll cost) {
-	G[u].pb(sz(e)); e.pb((edge){u,v,cap,cost,0});
-	G[v].pb(sz(e)); e.pb((edge){v,u,0,-cost,0});
+int nodes; //numero de nodos
+vector<int> G[MAXN]; // limpiar!
+vector<edge> e;  // limpiar!
+void addEdge(int u, int v, tf cap, tc cost) {
+	G[u].pb(sz(e)); e.pb((edge){u,v,cap,0,cost});
+	G[v].pb(sz(e)); e.pb((edge){v,u,0,0,-cost});
 }
-ll pot[MAXN], dist[MAXN], pre[MAXN], cap[MAXN];
-ll mxFlow, mnCost;
+tc dist[MAXN], mnCost;
+int pre[MAXN];
+tf cap[MAXN], mxFlow;
+bool in_queue[MAXN];
 void flow(int s, int t) {
-	fill(pot, pot+nodes, 0);
+	zero(in_queue);
 	mxFlow=mnCost=0;
 	while(1){
-		fill(dist, dist+nodes, INF); dist[s] = 0;
-		fill(pre, pre+nodes, -1); pre[s]=0;
-		fill(cap, cap+nodes, 0); cap[s] = INF;
-		priority_queue<pair<ll,int> > q; q.push(make_pair(0,s));
-		//~ Bellman Ford
-		//~ forn(i,nodes) {
-			//~ forn(j,sz(e)) if (e[j].rem()) {
-				//~ ll c = e[j].cost + pot[e[j].u] - pot[e[j].v];
-				//~ if (dist[e[j].v] > dist[e[j].u] + c) {
-					//~ dist[e[j].v] = dist[e[j].u] + c;
-					//~ pre[e[j].v] = j;
-					//~ cap[e[j].v] = min(cap[e[j].u], e[j].rem());
-			//~ } }
-		//~ }
-		//~ Dijkstra
-		while (!q.empty()) {
-			pair<ll,int> top = q.top(); q.pop();
-			int u = top.second;
-			ll d = -top.first;
-			if (u == t) break;
-			if (d > dist[u]) continue;
-			forn(i,sz(G[u])) {
-				edge E = e[G[u][i]];
-				ll c = E.cost + pot[u] - pot[E.v];
-				if (E.rem() && dist[E.v] > dist[u] + c) {
-					dist[E.v] = dist[u] + c;
-					pre[E.v] = G[u][i];
+		fill(dist, dist+nodes, INFCOSTO); dist[s] = 0;
+		memset(pre, -1, sizeof(pre)); pre[s]=0;
+		zero(cap); cap[s] = INFFLUJO;		
+		queue<int> q; q.push(s); in_queue[s]=1;
+		while(sz(q)){
+			int u=q.front(); q.pop(); in_queue[u]=0;
+			for(auto it:G[u]) {
+				edge &E = e[it];
+				if(E.rem() && dist[E.v] > dist[u] + E.cost + 1e-9){ // ojo EPS
+					dist[E.v]=dist[u]+E.cost;
+					pre[E.v] = it;
 					cap[E.v] = min(cap[u], E.rem());
-					q.push(make_pair(-dist[E.v], E.v));
+					if(!in_queue[E.v]) q.push(E.v), in_queue[E.v]=1;
 				}
 			}
 		}
 		if (pre[t] == -1) break;
-		forn(u,nodes) 
-			if (dist[u] == INF) pot[u] = INF;
-			else pot[u] += dist[u];
 		mxFlow +=cap[t];
-		mnCost +=cap[t]*pot[t];
+		mnCost +=cap[t]*dist[t];
 		for (int v = t; v != s; v = e[pre[v]].u) {
 			e[pre[v]].flow += cap[t];
 			e[pre[v]^1].flow -= cap[t];
