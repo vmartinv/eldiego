@@ -1,11 +1,11 @@
 void normalize(vector<pto> &pt){//delete collinear points first!
-	//make clockwise:
+	//this makes it clockwise:
     if(pt[2].left(pt[0], pt[1])) reverse(pt.begin(), pt.end());
 	int n=sz(pt), pi=0;
 	forn(i, n)
 		if(pt[i].x<pt[pi].x || (pt[i].x==pt[pi].x && pt[i].y<pt[pi].y))
 			pi=i;
-	vector<pto> shift(n);//put pi as first point
+	vector<pto> shift(n);//puts pi as first point
     forn(i, n) shift[i]=pt[(pi+i)%n];
     pt.swap(shift);
 }
