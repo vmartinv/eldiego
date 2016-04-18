@@ -1,20 +1,22 @@
-void make_clockwise(vector<pto> &pt){
-	if(pt[0].left(pt[1], pt[2])) reverse(pt.begin(), pt.end());}
-int calc_lowest(const vector<pto> &pt){
-	int pi=0;
-	forn(i, sz(pt))
+void normalize(vector<pto> &pt){//delete collinear points first!
+	//make clockwise:
+    if(pt[2].left(pt[0], pt[1])) reverse(pt.begin(), pt.end());
+	int n=sz(pt), pi=0;
+	forn(i, n)
 		if(pt[i].x<pt[pi].x || (pt[i].x==pt[pi].x && pt[i].y<pt[pi].y))
 			pi=i;
-	return pi;
+	vector<pto> shift(n);//put pi as first point
+    forn(i, n) shift[i]=pt[(pi+i)%n];
+    pt.swap(shift);
 }
-bool inside(pto p, int lw, const vector<pto> &pt){ //lw=calc_lowest(pt)
-	int n=sz(pt); //para no contar los bordes pto::left tiene que ser >=0
-	if(p.left(pt[lw], pt[(lw+1)%n]) || p.left(pt[(lw+n-1)%n], pt[lw])) return false;
-	int a=1, b=n-1;
+bool inPolygon(pto p, const vector<pto> &pt){
+	//call normalize first!
+	if(p.left(pt[0], pt[1]) || p.left(pt[sz(pt)-1], pt[0])) return false;
+	int a=1, b=sz(pt)-1;
 	while(b-a>1){
 		int c=(a+b)/2;
-		if(!p.left(pt[lw], pt[(lw+c)%n])) a=c;
+		if(!p.left(pt[0], pt[c])) a=c;
 		else b=c;
 	}
-	return !p.left(pt[(lw+a)%n], pt[(lw+a+1)%n]);
+	return !p.left(pt[a], pt[a+1]);
 }
