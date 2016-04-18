@@ -2,7 +2,6 @@
 %  pdflatex eldiego.tex
 %"The PDF file may contain up to 25 pages of reference material, single-sided, letter or A4 size, with text and illustrations readable by a person with correctable eyesight without magnification from a distance of 1/2 meter."
 \input{preamble.tex}
-\usepackage{amsmath}
 \begin{document}
 \def\title{Caloventor en Dos - Universidad Nacional de Rosario}
 \centering{\includegraphics[width=3.5cm]{fotodiego}}
@@ -39,7 +38,7 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \subsection{Treap para set}
 \cppfile[16-89]{estructuras/treap.cpp}
 \subsection{Treap para arreglo}
-\cppfile[17-91]{estructuras/treaparr.cpp}
+\cppfile[17-86]{estructuras/treaparr.cpp}
 +\subsection{Convex Hull Trick}
 +\cppfile[27-66]{estructuras/convexhull.trick.cpp}
 \subsection{Gain-Cost Set}
@@ -51,13 +50,15 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \section{Algos}%%%%%%%%%%%%%%%%%%ALGORITMOS%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Longest Increasing Subsecuence}
 \cppfile[14-42]{algos/lis.cpp}
-\subsection{Manacher}
-\cppfile[18-37]{algos/manacher.cpp}
 \subsection{Alpha-Beta prunning}
 \cppfile{algos/alphabeta.cpp}
+\subsection{Mo's algorithm}
+\cppfile{algos/mosalgorithm.cpp}
 
 
 \section{Strings}%%%%%%%%%%%%%%%%%%STRINGS%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Manacher}
+\cppfile[18-37]{string/manacher.cpp}
 \subsection{KMP}
 \cppfile[21-43]{string/kmp.cpp}
 \subsection{Trie}
@@ -72,11 +73,15 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile[60-75]{string/suffix.array.cpp}
 \subsection{Corasick}
 \cppfile[9-51]{string/corasick.cpp}
+\subsection{Suffix Automaton}
+\cppfile[16-53]{string/suffix.automaton.cpp}
 
 
 \section{Geometria}%%%%%%%%%%%%%%%%%%GEOMETRIA%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Punto}
-\cppfile[2-]{geometria/pto.cpp}
+\cppfile[2-33]{geometria/pto.cpp}
+\subsection{Orden radial de puntos}
+\cppfile{geometria/orden.radial.cpp}
 \subsection{Line}
 \cppfile{geometria/line.cpp}
 \subsection{Segment}
@@ -89,6 +94,8 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile{geometria/circle.cpp}
 \subsection{Point in Poly}
 \cppfile{geometria/point.in.poly.cpp}
+\subsection{Point in Convex Poly log(n)}
+\cppfile{geometria/point.in.convex.poly.cpp}
 \subsection{Convex Check CHECK}
 \cppfile{geometria/convex.check.cpp}
 \subsection{Convex Hull}
@@ -176,7 +183,7 @@ tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \subsection{Fraction}
 \cppfile{math/frac.cpp}
 \subsection{Polinomio}
-\cppfile[22-97]{math/polinomio.cpp}
+\cppfile[22-91]{math/polinomio.cpp}
 \subsection{Ec. Lineales}
 \cppfile[29-62]{math/eclineales.cpp}
 \subsection{FFT}
@@ -347,7 +354,7 @@ $\sigma_1(9896040)$ = 44323200 ; $\sigma_1(9959040)$ = 44553600 ; $\sigma_1(9979
 \subsection{Push-Relabel O(N3)}
 \cppfile{flow/push.relabel.cpp}
 \subsection{Min-cost Max-flow}
-\cppfile[16-80]{flow/min.cost.max.flow.cpp}
+\cppfile[16-66]{flow/min.cost.max.flow.cpp}
 
 
 \section{Template}%%%%%%%%%%%%%%%%%%TEMPLATE%%%%%%%%%%%%%%%%
