@@ -68,7 +68,7 @@ ll rho(ll n){
         if( x - y >= 0 ) d = gcd( x - y , n );
         else d = gcd( y - x , n );
     }
-    return d;
+    return d==n? rho(n):d;
 }
 
 map<ll,ll> prim; 
