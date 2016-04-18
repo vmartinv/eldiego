@@ -1,4 +1,4 @@
-bool isConvex(vector<int> &p){//O(N)
+bool isConvex(vector<int> &p){//O(N), delete collinear points!
 	int N=sz(p);
 	if(N<3) return false;
 	bool isLeft=p[0].left(p[1], p[2]);
