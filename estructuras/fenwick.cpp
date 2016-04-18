@@ -3,10 +3,10 @@ struct Fenwick{
 	static const int sz=1000001;
 	tipo t[sz];
 	void adjust(int p, tipo v){//valid with p in [1, sz), O(lgn)
-		for(; p<sz; p+=(p&-p)) t[p]+=v; }
+		for(int i=p; i<sz; i+=(i&-i)) t[i]+=v; }
 	tipo sum(int p){//cumulative sum in [1, p], O(lgn)
 		tipo s=0;
-		for(; p; p-=(p&-p)) s+=t[p];
+		for(int i=p; i; i-=(i&-i)) s+=t[i];
 		return s;
 	}
 	tipo sum(int a, int b){return sum(b)-sum(a-1);}
