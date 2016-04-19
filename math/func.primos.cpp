@@ -4,7 +4,7 @@ using namespace std;
 #define forr(i,a,b) for(int i=(a); i<(b); i++)
 #define forn(i,n) forr(i,0,n)
 #define dforn(i,n) for(int i=n-1; i>=0; i--)
-#define forall(it,v) for(typeof(v.begin()) it=v.begin();it!=v.end();++it)
+#define forall(it,v) for(auto it=v.begin();it!=v.end();++it)
 #define sz(c) ((int)c.size())
 #define zero(v) memset(v, 0, sizeof(v))
 #define pb push_back
@@ -96,7 +96,12 @@ ll numDiv (ll n){
 ll sumDiv (ll n){
   ll rta = 1;
   map<ll,ll> f=fact(n);
-  forall(it, f) rta *= ((ll)pow((double)it->first, it->second + 1.0)-1) / (it->first-1); 
+  forall(it, f) {
+	ll pot = 1, aux = 0;  
+	forn (i, it->snd+1) {
+		aux += pot; pot *= it->fst;	}
+	rta*=aux;  
+  } 
   return rta;
 }
 
