@@ -22,16 +22,24 @@ const int MAXLEN = 10010;
 state st[MAXLEN*2];
 int sz, last;
 void sa_init() {
+	forn(i,sz) st[i].next.clear();
 	sz = last = 0;
 	st[0].len = 0;
 	st[0].link = -1;
 	++sz;
 }
+// Es un DAG de una sola fuente y una sola hoja
+// cantidad de endpos = cantidad de apariciones = cantidad de caminos de la clase al nodo terminal
+// cantidad de miembros de la clase = st[v].len-st[st[v].link].len (v>0) = caminos del inicio a la clase
+// El árbol de los suffix links es el suffix tree de la cadena invertida. La string de la arista link(v)->v son los caracteres que difieren
+
 void sa_extend (char c) {
 	int cur = sz++;
 	st[cur].len = st[last].len + 1;
+	// en cur agregamos la posición que estamos extendiendo
+	//podría agregar también un identificador de las cadenas a las cuales pertenece (si hay varias)
 	int p;
-	for (p=last; p!=-1 && !st[p].next.count(c); p=st[p].link)
+	for (p=last; p!=-1 && !st[p].next.count(c); p=st[p].link) // modificar esta linea para hacer separadores únicos entre varias cadenas (c=='$')
 		st[p].next[c] = cur;
 	if (p == -1)
 		st[cur].link = 0;
@@ -41,6 +49,7 @@ void sa_extend (char c) {
 			st[cur].link = q;
 		else {
 			int clone = sz++;
+			// no le ponemos la posición actual a clone sino indirectamente por el link de cur
 			st[clone].len = st[p].len + 1;
 			st[clone].next = st[q].next;
 			st[clone].link = st[q].link;
@@ -54,6 +63,7 @@ void sa_extend (char c) {
 
 int main() {
     string s; cin >> s;
+    sa_init();
     forn(i, sz(s)) sa_extend(s[i]);	
 	return 0;
 }
