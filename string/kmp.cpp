@@ -20,7 +20,7 @@ const int MAXLEN=100000;
 
 string T;//cadena donde buscar(where)
 string P;//cadena a buscar(what)
-int b[MAXLEN];//back table
+int b[MAXLEN];//back table b[i] maximo borde de [0..i)
 void kmppre(){//by gabina with love
     int i =0, j=-1; b[0]=-1;
     while(i<sz(P)){
