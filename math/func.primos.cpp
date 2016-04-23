@@ -98,9 +98,8 @@ ll sumDiv (ll n){
   map<ll,ll> f=fact(n);
   forall(it, f) {
 	ll pot = 1, aux = 0;  
-	forn (i, it->snd+1) {
-		aux += pot; pot *= it->fst;	}
-	rta*=aux;  
+	forn(i, it->snd+1) aux += pot, pot *= it->fst;
+	rta*=aux;
   } 
   return rta;
 }
