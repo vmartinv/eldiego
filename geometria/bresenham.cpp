@@ -7,9 +7,9 @@ void bresenham(pto a, pto b){
 		m[a.x][a.y]=1;//plot
 		if(a==b) break;
 		int e2=2*err;
-		if(e2 > -d.y){
+		if(e2 > -d.y)
 			err-=d.y, a.x+=s.x;
-		if(e2 < d.x)
+		else
 			err+= d.x, a.y+= s.y;
 	}
 }
