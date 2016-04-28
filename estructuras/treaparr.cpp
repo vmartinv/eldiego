@@ -59,6 +59,7 @@ void split(pnode t, int tam, pnode &l, pnode &r) {
 }
 pnode at(pnode t, int pos) {
 	if(!t) exit(1);
+	push(t);
 	if(pos == size(t->l)) return t;
 	if(pos < size(t->l)) return at(t->l, pos);
 	return at(t->r, pos - 1 - size(t->l));
