@@ -7,7 +7,7 @@ module Treap where
 data Treap a = E | T Int  (Treap a) a (Treap a) deriving Show
 
 --Invariantes:
---Mirando las key, el treap es un arbol balanceado
+--Mirando las key, el treap es un arbol de busqueda
 --Mirando las prioridades, el treap es un max-heap!
 
 emptyT :: Treap a
