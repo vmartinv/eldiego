@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define dprint(v) cerr << #v"=" << v << endl //;)
+#define dprint(v) cout << #v"=" << v << endl //;)
 #define forr(i,a,b) for(int i=(a); i<(b); i++)
 #define forn(i,n) forr(i,0,n)
 #define dforn(i,n) for(int i=n-1; i>=0; i--)
