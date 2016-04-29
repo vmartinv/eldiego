@@ -15,7 +15,7 @@ typedef pair<int,int> ii;
 
 const int MAXN=100100;
 char s[MAXN];
-int z[MAXN];
+int z[MAXN]; // z[i] = i==0 ? 0 : max k tq s[0,k) match with s[i,i+k)
 void z_function(char s[],int z[]) {
     int n = strlen(s);
     forn(i, n) z[i]=0;
@@ -30,10 +30,11 @@ void z_function(char s[],int z[]) {
 }
 
 int main() {
-    freopen("input.in", "r", stdin);
     ios::sync_with_stdio(0);
-    while(cin >> n){
-    
+    while(cin >> s){ int slen = strlen(s);
+		z_function(s,z);
+		forn(i,slen) cout << z[i] << ' ';
+		cout << endl;
     }
     return 0;
 }
