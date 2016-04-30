@@ -1,64 +1,83 @@
-#define MAXN 256
-#define INFTO 0x7f7f7f7f
-int n;
-int mt[MAXN][MAXN]; // Matriz de costos (X * Y)
-int xy[MAXN], yx[MAXN]; // Matching resultante (X->Y, Y->X)
-int lx[MAXN], ly[MAXN], slk[MAXN], slkx[MAXN], prv[MAXN];
-char S[MAXN], T[MAXN];
-void updtree(int x) {
-	forn(y, n) if (lx[x] + ly[y] - mt[x][y] < slk[y]) {
-		slk[y] = lx[x] + ly[y] - mt[x][y];
-		slkx[y] = x;
-} }
-int hungar(){//Matching maximo de mayor costo en grafos dirigidos (N^3)
-	forn(i, n) {
-		ly[i] = 0;
-		lx[i] = *max_element(mt[i], mt[i]+n); }
-	memset(xy, -1, sizeof(xy));
-	memset(yx, -1, sizeof(yx));
-	forn(m, n) {
-		memset(S, 0, sizeof(S));
-		memset(T, 0, sizeof(T));
-		memset(prv, -1, sizeof(prv));
-		memset(slk, 0x7f, sizeof(slk));
-		queue<int> q;
-#define bpone(e, p) { q.push(e); prv[e] = p; S[e] = 1; updtree(e); }
-		forn(i, n) if (xy[i] == -1) { bpone(i, -2); break; }
-		int x=0, y=-1;
-		while (y==-1) {
-			while (!q.empty() && y==-1) {
-				x = q.front(); q.pop();
-				forn(j, n) if (mt[x][j] == lx[x] + ly[j] && !T[j]) {
-					if (yx[j] == -1) { y = j; break; }
-					T[j] = 1;
-					bpone(yx[j], x);
-				}
+#define N 401 //max number of vertices in one part
+#define INF 1e14 //just infinity
+#define tipo ll
+
+tipo cost[N][N], lx[N], ly[N], slack[N]; //cost matrix
+int n, max_match, xy[N], yx[N], slackx[N],prev2[N];
+bool S[N], T[N]; //sets S and T in algorithm
+
+void add_to_tree(int x, int prevx) {
+	S[x] = true; prev2[x] = prevx; 
+	forn(y, n)	if (lx[x] + ly[y] - cost[x][y] < slack[y]){
+		slack[y] = lx[x] + ly[y] - cost[x][y]; slackx[y] = x;
+	}
+}
+
+void update_labels()
+{
+	tipo delta = INF; 
+	forn (y, n) if (!T[y]) delta = min(delta, slack[y]);
+	forn (x, n) if (S[x]) lx[x] -= delta;
+	forn (y, n) if (T[y]) ly[y] += delta; else slack[y] -= delta;
+}
+
+void init_labels()
+{
+	memset(lx, 0, sizeof(lx)); memset(ly, 0, sizeof(ly));
+	forn (x,n) forn(y,n) lx[x] = max(lx[x], cost[x][y]);
+}
+void augment()
+{
+	if (max_match == n) return; 
+	int x, y, root, q[N], wr = 0, rd = 0; 
+	memset(S, false, sizeof(S)); memset(T, false, sizeof(T)); memset(prev2, -1, sizeof(prev2)); 
+	forn (x, n) if (xy[x] == -1){
+		q[wr++] = root = x; prev2[x] = -2;
+		S[x] = true; break;
+	}
+	forn (y, n){
+		slack[y] = lx[root] + ly[y] - cost[root][y];
+		slackx[y] = root;
+	}
+	while (true){
+		while (rd < wr){
+			x = q[rd++];
+			 for (y = 0; y < n; y++) if (cost[x][y] == lx[x] + ly[y] && !T[y]){
+				if (yx[y] == -1) break; T[y] = true; 
+				q[wr++] = yx[y]; add_to_tree(yx[y], x);
+			 }
+			if (y < n) break;
+		}
+		if (y < n) break; 
+		update_labels(); wr = rd = 0; 
+		for (y = 0; y < n; y++) if (!T[y] && slack[y] == 0){
+			if (yx[y] == -1){
+				x = slackx[y]; break;
 			}
-			if (y!=-1) break;
-			int dlt = INFTO;
-			forn(j, n) if (!T[j]) dlt = min(dlt, slk[j]);
-			forn(k, n) {
-				if (S[k]) lx[k] -= dlt;
-				if (T[k]) ly[k] += dlt;
-				if (!T[k]) slk[k] -= dlt;
-			}
-			forn(j, n) if (!T[j] && !slk[j]) {
-				if (yx[j] == -1) {
-					x = slkx[j]; y = j; break;
-				} else {
-					T[j] = 1;
-					if (!S[yx[j]]) bpone(yx[j], slkx[j]);
+			else{
+				T[y] = true; 
+				if (!S[yx[y]]) {
+					q[wr++] = yx[y]; add_to_tree(yx[y], slackx[y]);  
 				}
 			}
 		}
-		if (y!=-1) {
-			for(int p = x; p != -2; p = prv[p]) {
-				yx[y] = p;
-				int ty = xy[p]; xy[p] = y; y = ty;
-			}
-		} else break;
+		if (y < n) break; 
+	}	
+	if (y < n){
+		max_match++; 
+		for (int cx = x, cy = y, ty; cx != -2; cx = prev2[cx], cy = ty){
+			ty = xy[cx]; yx[cy] = cx; xy[cx] = cy;
+		}
+		augment();
 	}
-	int res = 0;
-	forn(i, n) res += mt[i][xy[i]];
-	return res;
+}
+tipo hungarian()
+{
+	tipo ret = 0; max_match = 0; 	memset(xy, -1, sizeof(xy)); 
+	memset(yx, -1, sizeof(yx)); init_labels(); augment(); //steps 1-3
+	forn (x,n) ret += cost[x][xy[x]];
+	return ret;
+}
+void addEdge(int u, int v, tipo cost2) {
+	cost[u][v]=cost2;
 }
