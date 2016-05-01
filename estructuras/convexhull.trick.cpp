@@ -24,7 +24,7 @@ struct CHT {
 	vector<Line> c;
 	bool mx;
 	int pos;
-	CHT(bool mx=0):mx(mx),pos(0){}//mx=si las query devuelven el max o el min
+	CHT(bool mx=0):mx(mx),pos(0){}//mx=1 si las query devuelven el max
 	inline Line acc(int i){return c[c[0].m>c.back().m? i : sz(c)-1-i];}
 	inline bool irre(Line x, Line y, Line z){
 		return c[0].m>z.m? inter(y, z) <= inter(x, y)
@@ -54,6 +54,8 @@ struct CHT {
 	}
 } ch;
 
+
+
 struct CHTBruto {
 	vector<Line> c;
 	bool mx;
@@ -79,8 +81,7 @@ struct CHTBruto {
 #define XVAL RND(-1000, 1000)
 #define MAXSZ 1000000
 
-int main() {
-    //~ freopen("h.in", "r", stdin);    
+int main() {   
     tipo m,h,x;
     int t;
     int dir;
