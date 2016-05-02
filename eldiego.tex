@@ -24,7 +24,7 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \subsection{Fenwick Tree}
 \cppfile{estructuras/fenwick.cpp}
 \subsection{Union Find}
-\cppfile{estructuras/union.find.cpp}
+\cppfile{grafos/union.find.cpp}
 \subsection{Disjoint Intervals}
 \cppfile{estructuras/disjoint.intervals.cpp}
 \subsection{RMQ (2D)}
@@ -38,9 +38,11 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \subsection{Treap para set}
 \cppfile[16-89]{estructuras/treap.cpp}
 \subsection{Treap para arreglo}
-\cppfile[17-86]{estructuras/treaparr.cpp}
-+\subsection{Convex Hull Trick}
-+\cppfile[27-66]{estructuras/convexhull.trick.cpp}
+\cppfile[17-87]{estructuras/treaparr.cpp}
+\subsection{Convex Hull Trick}
+\cppfile[18-55]{estructuras/convexhull.trick.cpp}
+\subsection{Convex Hull Trick (Dynamic)}
+\cppfile[17-56]{estructuras/convexhull.trick.dyn.cpp}
 \subsection{Gain-Cost Set}
 \cppfile[20-43]{estructuras/gain-cost.set.cpp}
 \subsection{Set con busq binaria}
@@ -74,7 +76,9 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \subsection{Corasick}
 \cppfile[9-51]{string/corasick.cpp}
 \subsection{Suffix Automaton}
-\cppfile[16-53]{string/suffix.automaton.cpp}
+\cppfile[16-61]{string/suffix.automaton.cpp}
+\subsection{Z Function}
+\cppfile[17-30]{string/zfunction.cpp}
 
 
 \section{Geometria}%%%%%%%%%%%%%%%%%%GEOMETRIA%%%%%%%%%%%%%%%%%%%%%%
@@ -163,7 +167,7 @@ $$y=\sum_{j=1}^n (x_j*(\prod_{i=1, i\neq j}^n m_i)_{m_j}^{-1}*\prod_{i=1, i\neq 
 \cppfile[19-39]{math/criba.cpp}
 \subsection{Funciones de primos}
 Sea $n=\prod{p_i^{k_i}}$, fact(n) genera un map donde a cada $p_i$ le asocia su $k_i$
-\cppfile[33-121]{math/func.primos.cpp}
+\cppfile[33-125]{math/func.primos.cpp}
 \subsection{Phollard's Rho (rolando)}
 \cppfile[16-84]{math/phollards.rho.cpp}
 \subsection{GCD}
@@ -342,6 +346,8 @@ $\sigma_1(9896040)$ = 44323200 ; $\sigma_1(9959040)$ = 44553600 ; $\sigma_1(9979
 \cppfile{grafos/chuliu.cpp}
 \subsection{Hungarian}
 \cppfile{grafos/hungarian.cpp}
+\subsection{Dynamic Conectivity}
+\cppfile[17-78]{grafos/dynamic.conectivity.cpp}
 
 
 \section{Network Flow}%%%%%%%%%%%%%%%%%%FLOW%%%%%%%%%%%%%%%%%%%%%%%%%%%%
