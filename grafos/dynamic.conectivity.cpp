@@ -62,7 +62,7 @@ struct DynCon {
     }
     void go(int l, int r) {
         if(l+1==r){
-            if (q[l].type == QUERY)//Aquí responder la query usando el dsu!
+            if (q[l].type == QUERY)//Aqui responder la query usando el dsu!
                 res.pb(dsu.comp);//aqui query=cantidad de componentes conexas
             return;
         }
