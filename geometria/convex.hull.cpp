@@ -1,4 +1,5 @@
 //stores convex hull of P in S, CCW order
+//left must return >=0 to delete collinear points!
 void CH(vector<pto>& P, vector<pto> &S){
 	S.clear();
 	sort(P.begin(), P.end());//first x, then y
