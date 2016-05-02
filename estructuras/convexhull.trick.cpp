@@ -33,8 +33,8 @@ struct CHT {
 	void add(tipo m, tipo h) {//O(1), los m tienen que entrar ordenados
         if(mx) m*=-1, h*=-1;
 		Line l=(Line){m, h};
-        if(sz(c) && m==c.back().m) l.h=min(h, c.back().h), c.pop_back();
-        while(sz(c)>=2 && irre(c[sz(c)-2], c[sz(c)-1], l)) c.pop_back();
+        if(sz(c) && m==c.back().m) { l.h=min(h, c.back().h), c.pop_back(); if(pos) pos--; }
+        while(sz(c)>=2 && irre(c[sz(c)-2], c[sz(c)-1], l)) { c.pop_back(); if(pos) pos--; }
         c.pb(l);
 	}
 	inline bool fbin(tipo x, int m) {return inter(acc(m), acc(m+1))>x;}
