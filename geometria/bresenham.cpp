@@ -6,10 +6,8 @@ void bresenham(pto a, pto b){
 	while(1){
 		m[a.x][a.y]=1;//plot
 		if(a==b) break;
-		int e2=2*err;
-		if(e2 > -d.y)
-			err-=d.y, a.x+=s.x;
-		else
-			err+= d.x, a.y+= s.y;
+		int e2=err;
+		if(e2 >= 0) err-=2*d.y, a.x+=s.x; 
+		if(e2 <= 0) err+= 2*d.x, a.y+= s.y;
 	}
 }
