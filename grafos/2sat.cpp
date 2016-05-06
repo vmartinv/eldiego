@@ -22,10 +22,10 @@ void tjn(int v){
 		}
 	}
 	if(lw[v]==idx[v]){
-		qcmp++;
 		int x;
 		do{x=q.top(); q.pop(); cmp[x]=qcmp;}while(x!=v);
 		verdad[qcmp]=(cmp[neg(v)]<0);
+		qcmp++;
 	}
 }
 //remember to CLEAR G!!!
