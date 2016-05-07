@@ -75,11 +75,11 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \subsection{LCP (Longest Common Prefix)}
 \cppfile[60-75]{string/suffix.array.cpp}
 \subsection{Corasick}
-\cppfile[9-51]{string/corasick.cpp}
+\cppfile[9-45]{string/corasick.cpp}
 \subsection{Suffix Automaton}
 \cppfile[16-61]{string/suffix.automaton.cpp}
 \subsection{Z Function}
-\cppfile[17-30]{string/zfunction.cpp}
+\cppfile[17-27]{string/zfunction.cpp}
 
 
 \section{Geometria}%%%%%%%%%%%%%%%%%%GEOMETRIA%%%%%%%%%%%%%%%%%%%%%%
@@ -91,8 +91,8 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile{geometria/line.cpp}
 \subsection{Segment}
 \cppfile{geometria/segm.cpp}
-\subsection{Rectangle}
-\cppfile{geometria/rect.cpp}
+%\subsection{Rectangle}
+%n\cppfile{geometria/rect.cpp}
 \subsection{Polygon Area}
 \cppfile{geometria/area.cpp}
 \subsection{Circle}
@@ -101,16 +101,16 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile{geometria/point.in.poly.cpp}
 \subsection{Point in Convex Poly log(n)}
 \cppfile{geometria/point.in.convex.poly.cpp}
-\subsection{Convex Check CHECK}
-\cppfile{geometria/convex.check.cpp}
+%\subsection{Convex Check CHECK}
+%\cppfile{geometria/convex.check.cpp}
 \subsection{Convex Hull}
 \cppfile{geometria/convex.hull.cpp}
 \subsection{Cut Polygon}
 \cppfile{geometria/cut.polygon.cpp}
 \subsection{Bresenham}
 \cppfile{geometria/bresenham.cpp}
-\subsection{Rotate Matrix}
-\cppfile{geometria/rotate.cpp}
+%\subsection{Rotate Matrix}
+%\cppfile{geometria/rotate.cpp}
 \subsection{Interseccion de Circulos en n3log(n)}
 \cppfile{geometria/int.circs.cpp}
 
@@ -158,19 +158,21 @@ Las constantes $c_{ij}$ se determinan por los casos base.
 \cppfile{math/combinatorio.cpp}
 \subsection{Exp. de Numeros Mod.}
 \cppfile[2]{math/exp.mod.cpp}
-\subsection{Exp. de Matrices y Fibonacci en log(n)}
+\subsection{Exp. de Matrices}
 \cppfile{math/exp.mat.cpp}
 \subsection{Matrices y determinante $O(n^3)$}
-\cppfile[17-77]{math/determinante.cpp}
+\cppfile[17-52]{math/determinante.cpp}
 \subsection{Teorema Chino del Resto}
 $$y=\sum_{j=1}^n (x_j*(\prod_{i=1, i\neq j}^n m_i)_{m_j}^{-1}*\prod_{i=1, i\neq j}^n m_i)$$
 \subsection{Criba}
-\cppfile[19-39]{math/criba.cpp}
+\cppfile[19-34
+]{math/criba.cpp}
 \subsection{Funciones de primos}
 Sea $n=\prod{p_i^{k_i}}$, fact(n) genera un map donde a cada $p_i$ le asocia su $k_i$
-\cppfile[33-125]{math/func.primos.cpp}
-\subsection{Phollard's Rho (rolando)}
-\cppfile[16-84]{math/phollards.rho.cpp}
+\cppfile[33-88]{math/func.primos.cpp}
+%COMPRIMIR
+%\subsection{Phollard's Rho (rolando)}
+%\cppfile[16-84]{math/phollards.rho.cpp}
 \subsection{GCD}
 \begin{code}
 tipo gcd(tipo a, tipo b){return a?gcd(b %a, a):b;}
@@ -188,11 +190,11 @@ tipo lcm(tipo a, tipo b){return a / gcd(a,b) * b;}
 \subsection{Fraction}
 \cppfile{math/frac.cpp}
 \subsection{Polinomio}
-\cppfile[22-91]{math/polinomio.cpp}
+\cppfile[16-74]{math/polinomio.cpp}
 \subsection{Ec. Lineales}
 \cppfile[29-62]{math/eclineales.cpp}
 \subsection{FFT}
-\cppfile[16-81]{math/fft.cpp}
+\cppfile[16-65]{math/fft.cpp}
 \subsection{Tablas y cotas (Primos, Divisores, Factoriales, etc)}
 %\subsubsection{
 \paragraph{Factoriales} \ \\

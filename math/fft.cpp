@@ -27,8 +27,7 @@ base operator+(const base &a, const base &b){
     return base(a.r+b.r, a.i+b.i);}
 base operator-(const base &a, const base &b){
     return base(a.r-b.r, a.i-b.i);}
-vector<int> rev;
-vector<base> wlen_pw;
+vector<int> rev; vector<base> wlen_pw;
 inline static void fft(base a[], int n, bool invert) {
     forn(i, n) if(i<rev[i]) swap(a[i], a[rev[i]]);
 	for (int len=2; len<=n; len<<=1) {
@@ -38,44 +37,29 @@ inline static void fft(base a[], int n, bool invert) {
 		wlen_pw[0] = base (1, 0);
         forr(i, 1, len2) wlen_pw[i] = wlen_pw[i-1] * wlen;
 		for (int i=0; i<n; i+=len) {
-			base t,
-				*pu = a+i,
-				*pv = a+i+len2, 
-				*pu_end = a+i+len2,
-				*pw = &wlen_pw[0];
-			for (; pu!=pu_end; ++pu, ++pv, ++pw) {
-				t = *pv * *pw;
-				*pv = *pu - t;
-				*pu = *pu + t;
-			}
+			base t, *pu = a+i, *pv = a+i+len2,  *pu_end = a+i+len2, *pw = &wlen_pw[0];
+			for (; pu!=pu_end; ++pu, ++pv, ++pw)
+				t = *pv * *pw, *pv = *pu - t,*pu = *pu + t;
 		}
 	}
-	if (invert) forn(i, n) a[i]/= n;
-}
+	if (invert) forn(i, n) a[i]/= n;}
 inline static void calc_rev(int n){//precalculo: llamar antes de fft!!
-    wlen_pw.resize(n);
-    rev.resize(n);
+    wlen_pw.resize(n), rev.resize(n);
     int lg=31-__builtin_clz(n);
     forn(i, n){
 		rev[i] = 0;
-        forn(k, lg) if(i&(1<<k))
-            rev[i]|=1<<(lg-1-k);
-    }
-}
+        forn(k, lg) if(i&(1<<k)) rev[i]|=1<<(lg-1-k);
+    }}
 inline static void multiply(const vector<int> &a, const vector<int> &b, vector<int> &res) {
 	vector<base> fa (a.begin(), a.end()),  fb (b.begin(), b.end());
-    int n=1;
-	while(n < max(sz(a), sz(b))) n <<= 1;
-	n <<= 1;
+    int n=1; while(n < max(sz(a), sz(b))) n <<= 1; n <<= 1;
     calc_rev(n);
 	fa.resize (n),  fb.resize (n);
 	fft (&fa[0], n, false),  fft (&fb[0], n, false);
 	forn(i, n) fa[i] = fa[i] * fb[i];
 	fft (&fa[0], n, true);
 	res.resize(n);
-    forn(i, n) res[i] = int (fa[i].real() + 0.5);
-}
+    forn(i, n) res[i] = int (fa[i].real() + 0.5); }
 void toPoly(const string &s, vector<int> &P){//convierte un numero a polinomio
     P.clear();
-    dforn(i, sz(s)) P.pb(s[i]-'0');
-}
+    dforn(i, sz(s)) P.pb(s[i]-'0');}

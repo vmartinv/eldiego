@@ -30,26 +30,18 @@ struct trie{
 			else if(!padre->padre) link=padre;//hijo de la raiz
 			else link=padre->get_link()->get_tran(pch);
 		}
-		return link;
-	}
+		return link; }
 	trie* get_tran(int c) {
-		if(!tran[c])
-			tran[c] = !padre? this : this->get_link()->get_tran(c);
-		return tran[c];
-	}
+		if(!tran[c]) tran[c] = !padre? this : this->get_link()->get_tran(c);
+		return tran[c];	}
 	trie *get_nxthoja(){
 		if(!nxthoja) nxthoja = get_link()->idhoja? link : link->nxthoja;
-		return nxthoja;
-	}
+		return nxthoja;	}
 	void print(int p){
-		if(idhoja)
-			cout << "found " << idhoja << "  at position " << p-szhoja << endl;
-		if(get_nxthoja()) get_nxthoja()->print(p);
-	}
+		if(idhoja) cout << "found " << idhoja << "  at position " << p-szhoja << endl;
+		if(get_nxthoja()) get_nxthoja()->print(p); }
 	void matching(const string &s, int p=0){
-		print(p);
-		if(p<sz(s)) get_tran(s[p])->matching(s, p+1);
-	}
+		print(p); if(p<sz(s)) get_tran(s[p])->matching(s, p+1);	}
 }tri;
 
 

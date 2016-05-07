@@ -42,7 +42,6 @@ map<ll,ll> fact(ll n){ //O (cant primos)
 	if(n>1) ret[n]++;
 	return ret;
 }
-
 //factoriza bien numeros hasta MAXP
 map<ll,ll> fact2(ll n){ //O (lg n)
 	map<ll,ll> ret;
@@ -53,46 +52,13 @@ map<ll,ll> fact2(ll n){ //O (lg n)
 	if(n>1) ret[n]++;
 	return ret;
 }
-
 //Usar asi:  divisores(fac, divs, fac.begin()); NO ESTA ORDENADO
 void divisores(const map<ll,ll> &f, vector<ll> &divs, map<ll,ll>::iterator it, ll n=1){
     if(it==f.begin()) divs.clear();
-    if(it==f.end()) {
-        divs.pb(n);
-        return;
-    }
+    if(it==f.end()) { divs.pb(n);  return; }
     ll p=it->fst, k=it->snd; ++it;
     forn(_, k+1) divisores(f, divs, it, n), n*=p;
 }
-
-ll numPrimeFactors (ll n){
-  ll rta = 0;
-  map<ll,ll> f=fact(n);
-  forall(it, f) rta += it->second;
-  return rta;
-}
-
-ll numDiffPrimeFactors (ll n){
-  ll rta = 0;
-  map<ll,ll> f=fact(n);
-  forall(it, f) rta += 1;
-  return rta;
-}
-
-ll sumPrimeFactors (ll n){
-  ll rta = 0;
-  map<ll,ll> f=fact(n);
-  forall(it, f) rta += it->first;
-  return rta;
-}
-
-ll numDiv (ll n){
-  ll rta = 1;
-  map<ll,ll> f=fact(n);
-  forall(it, f) rta *= (it->second + 1);
-  return rta;
-}
-
 ll sumDiv (ll n){
   ll rta = 1;
   map<ll,ll> f=fact(n);
@@ -103,22 +69,19 @@ ll sumDiv (ll n){
   } 
   return rta;
 }
-
 ll eulerPhi (ll n){ // con criba: O(lg n)
   ll rta = n;
   map<ll,ll> f=fact(n);
   forall(it, f) rta -= rta / it->first;
   return rta;
 }
-
 ll eulerPhi2 (ll n){ // O (sqrt n)
 	ll r = n;
 	forr (i,2,n+1){
 		if ((ll)i*i > n) break;
 		if (n % i == 0){
 			while (n%i == 0) n/=i;
-			r -= r/i;
-		}
+			r -= r/i; }
 	}
 	if (n != 1) r-= r/n;
 	return r;

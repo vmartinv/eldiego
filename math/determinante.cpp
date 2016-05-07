@@ -24,17 +24,12 @@ struct Mat {
     Mat operator+(Mat &b) { ///this de n x m entonces b de n x m
         Mat m(sz(b),sz(b[0]));
         forn(i,sz(vec)) forn(j,sz(vec[0])) m[i][j] = vec[i][j] + b[i][j];
-        return m;
-    }
+        return m;    }
     Mat operator*(const Mat &b) { ///this de n x m entonces b de m x t
         int n = sz(vec), m = sz(vec[0]), t = sz(b[0]);
         Mat mat(n,t);
-        forn(i,n) forn(j,t) {
-            forn(k,m)
-                mat[i][j] += vec[i][k] * b[k][j];
-        }
-        return mat;
-    }
+        forn(i,n) forn(j,t) forn(k,m) mat[i][j] += vec[i][k] * b[k][j];
+        return mat;    }
     double determinant(){//sacado de e maxx ru
         double det = 1;
         int n = sz(vec);
@@ -42,8 +37,7 @@ struct Mat {
         forn(i, n){//para cada columna
             int k = i;
             forr(j, i+1, n)//busco la fila con mayor val abs
-                if(abs(m[j][i])>abs(m[k][i]))
-                    k = j;
+                if(abs(m[j][i])>abs(m[k][i])) k = j;
             if(abs(m[k][i])<1e-9) return 0;
             m[i].swap(m[k]);//la swapeo
             if(i!=k) det = -det;
@@ -54,25 +48,6 @@ struct Mat {
                 forr(k, i+1, n) m[j][k]-=m[i][k]*m[j][i];
         }
         return det;
-    }
-    Mat identidad(int n) {
-        Mat m(n);
-        forn(i,n) m[i][i] = 1;
-        return m;
-    }
-    Mat transpuesta() {
-        Mat m(sz(vec[0]),sz(vec));
-        forn(i,sz(vec[0])) forn(j,sz(vec))
-            m[i][j] = vec[j][i];
-        return m;
-    }
-    void print() {
-        int n = sz(vec), m = sz(vec[0]);
-        cout << "***************" << endl;
-        forn(i,n){
-            forn(j,m) cout << " "+!j << vec[i][j];
-            cout << endl;
-        }
     }
 };
 

@@ -26,17 +26,12 @@ void crearcriba(){
 	for(int p=7,cur=0;p*p<=MAXP;p+=w[cur++&7]) if (!criba[p]) 
 		for(int j=p*p;j<=MAXP;j+=(p<<1)) if(!criba[j]) criba[j]=p;
 }
-
 vector<int> primos;
 void buscarprimos(){
 	crearcriba();
 	forr (i,2,MAXP+1) if (!criba[i]) primos.push_back(i);
 }
-
-//~ Useful for bit trick: 
-//~ #define SET(i) ( criba[(i)>>5]|=1<<((i)&31) )
-//~ #define INDEX(i) ( (criba[i>>5]>>((i)&31))&1 )
-//~ unsigned int criba[MAXP/32+1];
+//~ Useful for bit trick: #define SET(i) ( criba[(i)>>5]|=1<<((i)&31) ), #define INDEX(i) ( (criba[i>>5]>>((i)&31))&1 ), unsigned int criba[MAXP/32+1];
 
 
 int main() {
