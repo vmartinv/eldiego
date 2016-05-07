@@ -1,11 +1,11 @@
 % LaTeXar con :
 %  pdflatex eldiego.tex
 %"The PDF file may contain up to 25 pages of reference material, single-sided, letter or A4 size, with text and illustrations readable by a person with correctable eyesight without magnification from a distance of 1/2 meter."
-\input{preamble.tex}
+\input{preamble.margenes.chicos.tex}
 \begin{document}
 \def\title{Caloventor en Dos - Universidad Nacional de Rosario}
-\centering{\includegraphics[width=3.5cm]{fotodiego}}
-\tableofcontents\newpage
+%\centering{\includegraphics[width=3.5cm]{fotodiego}}
+%\tableofcontents\newpage
  
 \section{algorithm}%%%%%%%%%%%%%%%%%%ALGORITHM%%%%%%%%%%%%%%%%%%
 \input{algorithm.tex}
@@ -29,8 +29,9 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile{estructuras/disjoint.intervals.cpp}
 \subsection{RMQ (2D)}
 \cppfile{estructuras/rmq.2d.cpp}
-\subsection{Big Int}
-\cppfile{estructuras/bigint.cpp}
+%COMPRIMIR
+%\subsection{Big Int}
+%\cppfile{estructuras/bigint.cpp}
 \subsection{HashTables}
 \cppfile[16-30]{hash.cpp}
 \subsection{Modnum}
@@ -43,8 +44,8 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile[18-55]{estructuras/convexhull.trick.cpp}
 \subsection{Convex Hull Trick (Dynamic)}
 \cppfile[17-56]{estructuras/convexhull.trick.dyn.cpp}
-\subsection{Gain-Cost Set}
-\cppfile[20-43]{estructuras/gain-cost.set.cpp}
+%\subsection{Gain-Cost Set}
+%\cppfile[20-43]{estructuras/gain-cost.set.cpp}
 \subsection{Set con busq binaria}
 \cppfile[17-26]{estructuras/order.tree.cpp}
 
@@ -62,7 +63,7 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \subsection{Manacher}
 \cppfile[18-37]{string/manacher.cpp}
 \subsection{KMP}
-\cppfile[21-43]{string/kmp.cpp}
+\cppfile[21-38]{string/kmp.cpp}
 \subsection{Trie}
 \cppfile{string/trie.cpp}
 %\subsection{Suffix Array (corto, nlog2n)}
