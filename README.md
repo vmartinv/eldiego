@@ -11,7 +11,7 @@ Colores para el Geany!
 2) En el Geany:
 View -> Change Color scheme...
 
-Minifier de C++
+Villeador de C++
 -----------
-El minifier fue sacado de:
+Fue sacado de:
 https://github.com/Scylardor/cminify
