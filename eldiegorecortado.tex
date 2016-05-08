@@ -29,9 +29,8 @@ Dado un arreglo y una operacion asociativa \emph{idempotente}, get(i, j) opera s
 \cppfile{estructuras/disjoint.intervals.cpp}
 \subsection{RMQ (2D)}
 \cppfile{estructuras/rmq.2d.cpp}
-%COMPRIMIR
-%\subsection{Big Int}
-%\cppfile{estructuras/bigint.cpp}
+\subsection{Big Int}
+\cppfile{estructuras/bigint.villa.cpp}
 \subsection{HashTables}
 \cppfile[16-30]{hash.cpp}
 \subsection{Modnum}
@@ -170,9 +169,8 @@ $$y=\sum_{j=1}^n (x_j*(\prod_{i=1, i\neq j}^n m_i)_{m_j}^{-1}*\prod_{i=1, i\neq 
 \subsection{Funciones de primos}
 Sea $n=\prod{p_i^{k_i}}$, fact(n) genera un map donde a cada $p_i$ le asocia su $k_i$
 \cppfile[33-88]{math/func.primos.cpp}
-%COMPRIMIR
-%\subsection{Phollard's Rho (rolando)}
-%\cppfile[16-84]{math/phollards.rho.cpp}
+\subsection{Phollard's Rho (rolando)}
+\cppfile{math/phollards.rho.villa.cpp}
 \subsection{GCD}
 \begin{code}
 tipo gcd(tipo a, tipo b){return a?gcd(b %a, a):b;}
