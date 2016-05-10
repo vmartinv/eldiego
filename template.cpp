@@ -1,3 +1,4 @@
+//touch {a..m}.in; tee {a..m}.cpp < template.cpp
 #include <bits/stdc++.h>
 using namespace std;
 #define forr(i,a,b) for(int i=(a); i<(b); i++)

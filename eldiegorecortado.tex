@@ -274,16 +274,6 @@ $\sigma_0(498960)$ = 200 ; $\sigma_0(554400)$ = 216 ; $\sigma_0(1081080)$ = 256 
 
 
 \section{Ayudamemoria}%%%%%%%%%%%%%%%%%%AYUDAMEMORIA%%%%%%%%%%%%%%%%
-\subsection*{Cant. decimales}
-\begin{code}
-#include <iomanip>
-cout << setprecision(2) << fixed;
-\end{code}
-\subsection*{Rellenar con espacios(para justificar)}
-\begin{code}
-#include <iomanip>
-cout << setfill(' ') << setw(3) << 2 << endl;
-\end{code}
 \subsection*{Leer hasta fin de linea}
 \begin{code}
 #include <sstream>
@@ -295,51 +285,6 @@ while(getline(cin, line)){
    	 cout << endl;
 }
 \end{code}
-\subsection*{Aleatorios}
-\begin{code}
-#define RAND(a, b) (rand()%(b-a+1)+a)
-srand(time(NULL));
-\end{code}
-\subsection*{Doubles Comp.}
-\begin{code}
-const double EPS = 1e-9;
-x == y	<=> fabs(x-y) < EPS
-x >  y	<=> x > y + EPS
-x >= y	<=> x > y - EPS
-\end{code}
-\subsection*{Limites}
-\begin{code}
-#include <limits>
-numeric_limits<T>
-	::max()
-	::min()
-	::epsilon()
-\end{code}
-\subsection*{Muahaha}
-\begin{code}
-#include <signal.h>
-void divzero(int p){
-	while(true);}
-void segm(int p){
-	exit(0);}
-//in main
-signal(SIGFPE, divzero);
-signal(SIGSEGV, segm);
-\end{code}
-\subsection*{Mejorar velocidad}
-\begin{code}
-ios::sync_with_stdio(false);
-\end{code}
-\subsection*{Mejorar velocidad 2}
-\begin{code}
-//Solo para enteros positivos
-inline void Scanf(int& a){
-	char c = 0;
-	while(c<33) c = getc(stdin);
-	a = 0;
-	while(c>33)	a = a*10 + c - '0', c = getc(stdin);
-}
-\end{code}
 \subsection*{Expandir pila}
 \begin{code}
 #include <sys/resource.h>
@@ -348,21 +293,8 @@ getrlimit(RLIMIT_STACK, &rl);
 rl.rlim_cur=1024L*1024L*256L;//256mb
 setrlimit(RLIMIT_STACK, &rl);
 \end{code}
-\subsection*{C++11}
-\begin{code}
-g++ --std=c++1
-\end{code}
-\subsection*{Leer del teclado}
-\begin{code}
-freopen("/dev/tty", "a", stdin);
-\end{code}
 \subsection*{Iterar subconjunto}
 \begin{code}
 for(int sbm=bm; sbm; sbm=(sbm-1)&bm)
-\end{code}
-\subsection*{File setup}
-\begin{code}
-//tambien se pueden usar comas: {a, x, m, l}
-touch {a..l}.in; tee {a..l}.cpp < template.cpp
 \end{code}
 \end{document}
