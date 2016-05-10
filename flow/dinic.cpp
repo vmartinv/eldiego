@@ -2,13 +2,20 @@
 #include <cstring>
 using namespace std;
 typedef long long ll;
-#define forall(it,v) for(typeof(v.begin()) it=v.begin();it!=v.end();++it)
+#define forall(it,v) for(auto it=v.begin();it!=v.end();++it)
 #define zero(v) memset(v, 0, sizeof(v))
 #define pb push_back
 #define sz(v) ((int)v.size())
 #define INF 1e18
 
 const int MAX = 300;
+// Corte minimo: vertices con dist[v]>=0 (del lado de src) VS.  dist[v]==-1 (del lado del dst)
+// Para el caso de la red de Bipartite Matching (Sean V1 y V2 los conjuntos mas proximos a src y dst respectivamente):
+// Reconstruir matching: para todo v1 en V1 ver las aristas a vertices de V2 con it->f>0, es arista del Matching
+// Min Vertex Cover: vertices de V1 con dist[v]==-1 + vertices de V2 con dist[v]>0
+// Max Independent Set: tomar los vertices NO tomados por el Min Vertex Cover
+// Max Clique: construir la red de G complemento (debe ser bipartito!) y encontrar un Max Independet Set
+// Min Edge Cover: tomar las aristas del matching + para todo vertices no cubierto hasta el momento, tomar cualquier arista de el
 int nodes, src, dst;
 int dist[MAX], q[MAX], work[MAX];
 struct Edge {
