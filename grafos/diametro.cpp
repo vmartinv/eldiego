@@ -14,25 +14,18 @@ typedef long long ll;
 typedef pair<int,int> ii;
 const int MAXN=100100;
 
-vector<int> G[MAXN];
-int n,m;
-
-int p[MAXN],d[MAXN],d2[MAXN];
+vector<int> G[MAXN]; int n,m,p[MAXN],d[MAXN],d2[MAXN];
 int bfs(int r, int *d) {
 	queue<int> q;
 	d[r]=0; q.push(r);
 	int v;
 	while(sz(q)) { v=q.front(); q.pop();
-		forall(it,G[v]) if (d[*it]==-1) {
-			d[*it]=d[v]+1, p[*it]=v;
-			q.push(*it);
-		}
+		forall(it,G[v]) if (d[*it]==-1)
+			d[*it]=d[v]+1, p[*it]=v, q.push(*it);
 	}
 	return v;//ultimo nodo visitado
 }
-
-vector<int> diams;
-vector<ii> centros;
+vector<int> diams; vector<ii> centros;
 void diametros(){
 	memset(d,-1,sizeof(d));
 	memset(d2,-1,sizeof(d2));
