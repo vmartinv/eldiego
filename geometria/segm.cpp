@@ -12,7 +12,7 @@ struct segm{
     bool inside(pto p){return abs(dist(s, p)+dist(p, f)-dist(s, f))<EPS;}
 };
 
-//NOTA: Si los segmentos coinciden en mas de un punto no devuelve ninguno.
+//NOTA: Si los segmentos coinciden en mas de un punto puede no devolver ninguno.
 pto inter(segm s1, segm s2){
     if(s1.inside(s2.s) return s2.s; //Fix cuando son colineales
     if(s1.inside(s2.f) return s2.f; //Fix cuando son colineales
