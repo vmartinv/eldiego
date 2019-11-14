@@ -1,7 +1,7 @@
 El Diego
 =======
 
-This is a collection of several algorithms our team "Caloventor en Dos" from Argentina used at ACM-ICPC (2014-2016). Everything is put in `eldiego.pdf`, and a stripped down version `eldiegorecortado.pdf` is the one we used in the the 2016 World Finals (since it has a limit of 25 pages).
+This is a collection of several algorithms our team "Caloventor en Dos" from Argentina used at ACM-ICPC (2014-2016). Everything is put in `eldiego.pdf`, and `eldiegorecortado.pdf` is a stripped down version we used in the 2016 World Finals (since it has a limit of 25 pages).
 
 Notebook del equipo Caloventor en Dos. Gabina Rlz.
 
